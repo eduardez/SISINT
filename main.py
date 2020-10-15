@@ -8,12 +8,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 import time
-
+import cmd
 
 path_dict = {
     'search_box': '//*[@id="side"]/div[1]/div/label/div/div[2]',
     'click_chat_panel': '//*[@id="pane-side"]/div[1]/div[1]/div[1]/div[2]',
-    'chat_input_box': '//*[@id="main"]/footer[1]/div[1]/div[2]/div[1]/div[2]'
+    'chat_input_box': '//*[@id="main"]/footer[1]/div[1]/div[2]/div[1]/div[2]',
+    'chat_abrir_adjuntar': '//*[@id="main"]/footer[1]/div[1]/div[1]/div[2]/div[1]/div[1]',
+    'file_input': '//input[@type="file"]'
 }
 
 # Open WhatsApp URL in chrome browser
@@ -41,13 +43,19 @@ class Guasap():
         time.sleep(2)
         return True
 
-    def sendMsg(self, text, usr):
-        if self.searchUser(usr):
-            contact_side_pan = self.searchElement('click_chat_panel')
-            ActionChains(self.driver).click(contact_side_pan).perform()
-            time.sleep(1)
-            text_box = self.searchElement('chat_input_box')
-            text_box.send_keys(text)
+    def sendMsg(self, text):
+        contact_side_pan = self.searchElement('click_chat_panel')
+        ActionChains(self.driver).click(contact_side_pan).perform()
+        time.sleep(1)
+        text_box = self.searchElement('chat_input_box')
+        text_box.send_keys(text)
+
+    def adjuntarArchivo(self):
+        abrir_adjuntar_span = self.searchElement('chat_abrir_adjuntar')
+        ActionChains(self.driver).click(abrir_adjuntar_span).perform()
+        uploader = self.searchElement('file_input')
+        uploader.send_keys('/home/eduardez/Escritorio/Workspace/LAB_INTERRACT/SISINT/README.md')
+
 
     def searchElement(self, element):
         try:
@@ -62,10 +70,50 @@ class Guasap():
     def closeDriver(self):
         self.driver.quit()
 
+
+class MainMenu(cmd.Cmd):
+    guasap = Guasap()
+    intro = 'Watsss 0.0.1'
+    prompt = 'WPConsole > '
+    
+    def do_connect(self, args):
+        self.guasap.startConnection()
+        
+    def do_disconnect(self, args):
+        self.guasap.closeDriver()
+    
+    def do_sendMsgUser(self, args):
+        msg = input('Mensaje: ')
+        user = input('Usuario: ')
+        if self.guasap.searchUser(user):
+            self.guasap.sendMsg(msg)
+        else:
+            #Aqui ver si el titulo del chat activo se corresponde con el del usuario
+            print('Usuario no encontrado')
+
+    def do_adjuntar(self, args):
+        self.guasap.adjuntarArchivo()
+
+    def do_searchUser(self, args):
+        user = input('Usuario: ')
+        self.guasap.searchUser(user)
+
+    def do_sendMsg(self, args):
+        msg = input('Mensaje: ')
+        self.guasap.sendMsg(msg)
+    
+    def do_getInfo(self, args):
+        logger.other('Device {0}'.format(self.device_clock.mac_addr))
+    
+    def do_vibrate(self, args):
+        self.device_clock.vibrate()
+
+    def do_exit(self, arg):
+        logger.success('Bye coneho')
+        return True
+
+
+
+
 if __name__ == "__main__":
-    gua = Guasap()
-    gua.startConnection()
-    user_list = ['34649683729', '34607421849', '34654067118']
-    for user in user_list:
-        gua.sendMsg("Pruebaca", user)
-        time.sleep(0.5)
+    MainMenu().cmdloop()
