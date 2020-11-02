@@ -18,13 +18,19 @@ class Ui_Principal(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def setActions(self):
         self.btn_enviar_msg.clicked.connect(lambda: self.enviarMensaje())
+        self.btn_buscar_contacto.clicked.connect(lambda: self.buscarUser())
         self.actionAbrir_guasa.triggered.connect(lambda: self.abrirPagina())
+        
 
     def abrirPagina(self):
         self.wp_instance.startConnection()
 
     def enviarMensaje(self):
         pass
+
+    def buscarUser(self):
+        numero = self.input_buscar_contacto.text()
+        self.wp_instance.searchUser(numero)
 
 
 

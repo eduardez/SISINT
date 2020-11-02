@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
+import time 
 
 path_dict = {
     'search_box': '//*[@id="side"]/div[1]/div/label/div/div[2]',
@@ -37,7 +38,7 @@ class Guasap():
     def searchUser(self, usr):
         print("Buscando search_box...")
         person_title = self.searchElement('search_box')
-        person_title.clear()
+        person_title.clear() 
         person_title.send_keys(usr)
         time.sleep(2)
         return True
@@ -53,7 +54,7 @@ class Guasap():
         abrir_adjuntar_span = self.searchElement('chat_abrir_adjuntar')
         ActionChains(self.driver).click(abrir_adjuntar_span).perform()
         uploader = self.searchElement('file_input')
-        uploader.send_keys('/home/eduardez/Escritorio/Workspace/LAB_INTERRACT/SISINT/README.md')
+        #uploader.send_keys('/home/eduardez/Escritorio/Workspace/LAB_INTERRACT/SISINT/README.md')
 
 
     def searchElement(self, element):
