@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UI_login</class>
+ <widget class="QWidget" name="UI_login">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>581</width>
+    <height>515</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>581</width>
+    <height>515</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>581</width>
+    <height>515</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>INICIO</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+	font-family: century gothic;
+	font-size: 24px;
+}
+QWidget
+{
+	background:url(:/img/fondo.jpg);
+}
+
+QFrame
+{
+	background:#333;
+	border-radius:15px;
+}
+QToolButton
+{
+	background:#25D366;
+	border-radius:60px;
+}
+QLabel
+{
+	color:white;
+}
+
+QPushButton:hover
+{	
+	color:#333;
+	background:#128C7E;
+	border-radius:15px;
+	
+}
+QPushButton
+{
+	background:#25D366;
+	border-radius:15px;
+}
+QLineEdit
+{
+	background:transparent;
+	font-size:20px;
+	border:none;
+	color:#717072;
+	border-bottom:1px solid #717062;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>120</y>
+     <width>481</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>30</y>
+      <width>177</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>INICIAR SESION</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_iniciar">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>260</y>
+      <width>421</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>INICIAR</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_password">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>180</y>
+      <width>409</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>Contraseña</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_usuario">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>100</y>
+      <width>409</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Usuario</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QToolButton" name="btn_whatsapp">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>20</y>
+     <width>121</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources/login_resources.qrc">
+     <normaloff>:/img/whatsapp logo.png</normaloff>:/img/whatsapp logo.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>128</width>
+     <height>64</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="Resources/login_resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
