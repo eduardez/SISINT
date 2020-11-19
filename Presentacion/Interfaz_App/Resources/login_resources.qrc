@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>img/user.png</file>
-        <file>img/whatsapp logo.png</file>
-        <file>img/fondo.jpg</file>
-    </qresource>
-</RCC>

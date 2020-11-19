@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtWidgets import QApplication
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
-from Resources import login_resources_rc
+from Resources import icons
 
 
 class Login:

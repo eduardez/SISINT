@@ -32,7 +32,7 @@
 }
 QWidget
 {
-	background:url(:/img/fondo.jpg);
+	background:url(:/icons/fondo.jpg);
 }
 
 QFrame
@@ -177,8 +177,8 @@ QLineEdit
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="Resources/login_resources.qrc">
-     <normaloff>:/img/whatsapp logo.png</normaloff>:/img/whatsapp logo.png</iconset>
+    <iconset resource="Resources/icons.qrc">
+     <normaloff>:/icons/whatsapp logo.png</normaloff>:/icons/whatsapp logo.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -189,7 +189,7 @@ QLineEdit
   </widget>
  </widget>
  <resources>
-  <include location="Resources/login_resources.qrc"/>
+  <include location="Resources/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
