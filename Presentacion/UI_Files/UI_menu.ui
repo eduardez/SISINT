@@ -18,8 +18,337 @@
 font: century-gothic;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <item>
+     <widget class="QFrame" name="fiz">
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+background:#333;
+}
+
+
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QFrame" name="iz1">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <spacer name="spacer_iz_arriba">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_user">
+            <property name="styleSheet">
+             <string notr="true">background:rgb(247, 247, 247);
+border-radius:40px;
+
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources/icons.qrc">
+              <normaloff>:/icons/user.png</normaloff>:/icons/user.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="iz1_2">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QPushButton" name="btn_enviar">
+            <property name="maximumSize">
+             <size>
+              <width>180</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+color:black;
+background:rgb(247, 247, 247);
+border-radius:7px;
+}
+QPushButton:hover{
+background-color:rgb(211, 255, 254);
+font-color:black;
+border-radius:7px;
+}</string>
+            </property>
+            <property name="text">
+             <string>ENVIAR MENSAJES</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources/icons.qrc">
+              <normaloff>:/icons/send.png</normaloff>:/icons/send.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="iz3">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QPushButton" name="btn_mensajes">
+            <property name="maximumSize">
+             <size>
+              <width>180</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+color:black;
+background:rgb(247, 247, 247);
+border-radius:8px;
+}
+QPushButton:hover{
+background-color:rgb(211, 255, 254);
+font-color:black;
+border-radius:8px;
+}</string>
+            </property>
+            <property name="text">
+             <string>MENSAJES</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources/icons.qrc">
+              <normaloff>:/icons/manage.png</normaloff>:/icons/manage.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="iz2">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QPushButton" name="btn_colegios">
+            <property name="maximumSize">
+             <size>
+              <width>180</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+color:black;
+background:rgb(247, 247, 247);
+border-radius:8px;
+}
+QPushButton:hover{
+background-color:rgb(211, 255, 254);
+font-color:black;
+border-radius:8px;
+}</string>
+            </property>
+            <property name="text">
+             <string>COLEGIO</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources/icons.qrc">
+              <normaloff>:/icons/groups.png</normaloff>:/icons/groups.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="iz4">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:black;
+background:#white;
+border-radius:15px;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="btn_salir">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>10</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QPushButton{
+color:black;
+background:none;
+border-radius:1px;
+}
+QPushButton:hover{
+background-color:rgb(255, 106, 108);
+font-color:black;
+border-radius:3px;
+}</string>
+            </property>
+            <property name="text">
+             <string notr="true"/>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources/icons.qrc">
+              <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>120</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
      <widget class="QFrame" name="fdr">
       <property name="styleSheet">
        <string notr="true">QFrame{
@@ -44,7 +373,7 @@ text-shadow: black;
 </string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="sw_enviar">
           <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -611,89 +940,188 @@ border-radius:8px;
           </layout>
          </widget>
          <widget class="QWidget" name="page">
-          <widget class="QFrame" name="frame_3">
-           <property name="geometry">
-            <rect>
-             <x>-1</x>
-             <y>-1</y>
-             <width>511</width>
-             <height>561</height>
-            </rect>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_12">
-            <item>
-             <widget class="QTabWidget" name="tabWidget">
-              <property name="currentIndex">
-               <number>1</number>
-              </property>
-              <widget class="QWidget" name="tab">
-               <attribute name="title">
-                <string>Alumnos</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_10">
-                <item>
-                 <widget class="QFrame" name="frame_4">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>400</height>
-                   </size>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_13">
-                   <item>
-                    <widget class="QComboBox" name="comboBox">
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_3">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QTabWidget" name="tabWidget">
+                <property name="currentIndex">
+                 <number>1</number>
+                </property>
+                <widget class="QWidget" name="alumnos">
+                 <attribute name="title">
+                  <string>Alumnos</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout">
+                  <item row="0" column="0">
+                   <widget class="QFrame" name="frame_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>400</height>
+                     </size>
+                    </property>
+                    <property name="layoutDirection">
+                     <enum>Qt::RightToLeft</enum>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_5">
                      <item>
-                      <property name="text">
-                       <string>1ºA</string>
-                      </property>
+                      <spacer name="horizontalSpacer_2">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                      <item>
-                      <property name="text">
-                       <string>1ºB</string>
-                      </property>
+                      <widget class="QLabel" name="lbl_selgrupo">
+                       <property name="text">
+                        <string>SELECCIONAR GRUPO</string>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <property name="text">
-                       <string>2ºB</string>
-                      </property>
+                      <widget class="QComboBox" name="cb_selgrupo">
+                       <property name="maximumSize">
+                        <size>
+                         <width>40</width>
+                         <height>300</height>
+                        </size>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>1ºA</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>2ºC</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>3ºB</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>4ºA</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QFrame" name="fr_btnalumnos">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <item>
+                      <spacer name="horizontalSpacer_3">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Preferred</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>190</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                      <item>
-                      <property name="text">
-                       <string>2ºC</string>
-                      </property>
+                      <widget class="QPushButton" name="btn_addaalu">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">*{
+font:14px;
+}
+QPushButton{
+color:white;
+background:black;
+border-radius:8px;
+}
+QPushButton:hover{
+background-color:rgb(0, 170, 0);
+font-color:white;
+border-radius:8px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>AÑADIR</string>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <property name="text">
-                       <string>3ºA</string>
-                      </property>
+                      <widget class="QPushButton" name="btn_editalu">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">*{
+font:14px;
+}
+QPushButton{
+color:white;
+background:black;
+border-radius:8px;
+}
+QPushButton:hover{
+background-color:rgb(0, 170, 0);
+font-color:white;
+border-radius:8px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>EDITAR</string>
+                       </property>
+                      </widget>
                      </item>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_6">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">*{
+                     <item>
+                      <widget class="QPushButton" name="btn_borraralu">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">*{
 font:14px;
 }
 QPushButton{
@@ -706,22 +1134,119 @@ background-color:rgb(0, 170, 0);
 font-color:white;
 border-radius:8px;
 }</string>
-                  </property>
-                  <property name="text">
-                   <string>AÑADIR</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_5">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">*{
+                       </property>
+                       <property name="text">
+                        <string>BORRAR</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QTableWidget" name="tbl_alumnos">
+                    <attribute name="horizontalHeaderCascadingSectionResizes">
+                     <bool>true</bool>
+                    </attribute>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <column>
+                     <property name="text">
+                      <string>New Column</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>New Column</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>New Column</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>New Column</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>New Column</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="clase">
+                 <attribute name="title">
+                  <string>Clase</string>
+                 </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_11">
+                  <item>
+                   <widget class="QFrame" name="frame_5">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout">
+                     <item>
+                      <spacer name="horizontalSpacer_4">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Preferred</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>190</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_addclase">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">*{
 font:14px;
 }
 QPushButton{
@@ -734,22 +1259,22 @@ background-color:rgb(0, 170, 0);
 font-color:white;
 border-radius:8px;
 }</string>
-                  </property>
-                  <property name="text">
-                   <string>EDITAR</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_7">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">*{
+                       </property>
+                       <property name="text">
+                        <string>AÑADIR</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_editclase">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">*{
 font:14px;
 }
 QPushButton{
@@ -762,88 +1287,22 @@ background-color:rgb(0, 170, 0);
 font-color:white;
 border-radius:8px;
 }</string>
-                  </property>
-                  <property name="text">
-                   <string>BORRAR</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QTableWidget" name="tableWidget_2">
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <column>
-                   <property name="text">
-                    <string>New Column</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>New Column</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>New Column</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>New Column</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>New Column</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_2">
-               <attribute name="title">
-                <string>Clase</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_11">
-                <item>
-                 <widget class="QPushButton" name="pushButton_2">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">*{
+                       </property>
+                       <property name="text">
+                        <string>EDITAR</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_borrarclase">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">*{
 font:14px;
 }
 QPushButton{
@@ -856,460 +1315,193 @@ background-color:rgb(0, 170, 0);
 font-color:white;
 border-radius:8px;
 }</string>
-                  </property>
-                  <property name="text">
-                   <string>AÑADIR</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_3">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">*{
-font:14px;
-}
-QPushButton{
-color:white;
-background:black;
-border-radius:8px;
-}
-QPushButton:hover{
-background-color:rgb(0, 170, 0);
-font-color:white;
-border-radius:8px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>EDITAR</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_4">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">*{
-font:14px;
-}
-QPushButton{
-color:white;
-background:black;
-border-radius:8px;
-}
-QPushButton:hover{
-background-color:rgb(0, 170, 0);
-font-color:white;
-border-radius:8px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>BORRAR</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QTableWidget" name="tableWidget_3">
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <row>
-                   <property name="text">
-                    <string>New Row</string>
-                   </property>
-                  </row>
-                  <column>
-                   <property name="text">
-                    <string>CURSO</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>GRUPO</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>NºALUMNOS</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>PROFESOR</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <zorder>frame_3</zorder>
-          <zorder>tabWidget</zorder>
+                       </property>
+                       <property name="text">
+                        <string>BORRAR</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QTableWidget" name="tbl_clases">
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <row>
+                     <property name="text">
+                      <string>New Row</string>
+                     </property>
+                    </row>
+                    <column>
+                     <property name="text">
+                      <string>CURSO</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>GRUPO</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>NºALUMNOS</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>PROFESOR</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QFrame" name="fiz">
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-background:#333;
-}
-
-
-</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QFrame" name="iz1">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <spacer name="spacer_iz_arriba">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>10</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btn_user">
-            <property name="styleSheet">
-             <string notr="true">background:rgb(247, 247, 247);
-border-radius:40px;
-
-</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="Resources/icons.qrc">
-              <normaloff>:/icons/user.png</normaloff>:/icons/user.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>150</width>
-              <height>150</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="iz1_2">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <widget class="QPushButton" name="btn_enviar_4">
-            <property name="maximumSize">
-             <size>
-              <width>180</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-color:black;
-background:rgb(247, 247, 247);
-border-radius:7px;
-}
-QPushButton:hover{
-background-color:rgb(211, 255, 254);
-font-color:black;
-border-radius:7px;
-}</string>
-            </property>
-            <property name="text">
-             <string>ENVIAR MENSAJES</string>
-            </property>
-            <property name="icon">
-             <iconset resource="Resources/icons.qrc">
-              <normaloff>:/icons/send.png</normaloff>:/icons/send.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>40</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-            <property name="flat">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="iz3">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QPushButton" name="btn_enviar_2">
-            <property name="maximumSize">
-             <size>
-              <width>180</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-color:black;
-background:rgb(247, 247, 247);
-border-radius:8px;
-}
-QPushButton:hover{
-background-color:rgb(211, 255, 254);
-font-color:black;
-border-radius:8px;
-}</string>
-            </property>
-            <property name="text">
-             <string>MENSAJES</string>
-            </property>
-            <property name="icon">
-             <iconset resource="Resources/icons.qrc">
-              <normaloff>:/icons/manage.png</normaloff>:/icons/manage.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>40</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-            <property name="flat">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="iz2">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QPushButton" name="btn_enviar_3">
-            <property name="maximumSize">
-             <size>
-              <width>180</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-color:black;
-background:rgb(247, 247, 247);
-border-radius:8px;
-}
-QPushButton:hover{
-background-color:rgb(211, 255, 254);
-font-color:black;
-border-radius:8px;
-}</string>
-            </property>
-            <property name="text">
-             <string>GRUPOS</string>
-            </property>
-            <property name="icon">
-             <iconset resource="Resources/icons.qrc">
-              <normaloff>:/icons/groups.png</normaloff>:/icons/groups.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>40</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-            <property name="flat">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="iz4">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color:black;
-background:#white;
-border-radius:15px;</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QPushButton" name="btn_salir">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>10</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QPushButton{
-color:black;
-background:none;
-border-radius:1px;
-}
-QPushButton:hover{
-background-color:rgb(255, 106, 108);
-font-color:black;
-border-radius:3px;
-}</string>
-            </property>
-            <property name="text">
-             <string notr="true"/>
-            </property>
-            <property name="icon">
-             <iconset resource="Resources/icons.qrc">
-              <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>40</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>120</width>
-              <height>10</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
+         <widget class="QWidget" name="page_2">
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>90</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background:black;
+color:white;
+font: 75 14pt &quot;Calibri&quot;,white;</string>
+             </property>
+             <property name="text">
+              <string>   BIENVENIDO A SCHOOL MASSIVE WHATSAPP</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background:black;
+color:white;
+font: 75 10pt &quot;Calibri&quot;,white;</string>
+             </property>
+             <property name="text">
+              <string> ENVIAR MENSAJES</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string> Esta opción permite crear un mensaje y enviarlo masivamente a la cantidad de contactos que desee.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background:black;
+color:white;
+font: 75 10pt &quot;Calibri&quot;,white;</string>
+             </property>
+             <property name="text">
+              <string> MENSAJES</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string> Esta opción permite visualizar un historial de los mensajes que  se han enviado.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background:black;
+color:white;
+font: 75 10pt &quot;Calibri&quot;,white;</string>
+             </property>
+             <property name="text">
+              <string> COLEGIO</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="text">
+              <string> Esta opción permite añadir, editar y borrar alumnos y clases.</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
