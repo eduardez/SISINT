@@ -3,6 +3,14 @@ cache/
 
 *.pyc
 
+build/main/
+
 dist/main/
 
-build/main/
+geckodriver.log
+
+os
+
+README.md
+
+Selección_079.png

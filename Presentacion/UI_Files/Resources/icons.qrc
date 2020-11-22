@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="/">
+    <file>icons/danger.png</file>
+    <file>icons/user.png</file>
+    <file>icons/file.png</file>
+    <file>icons/close.png</file>
+    <file>icons/form.png</file>
+    <file>icons/groups.png</file>
+    <file>icons/manage.png</file>
+    <file>icons/masive.png</file>
+    <file>icons/photo.png</file>
+    <file>icons/send.png</file>
+    <file>icons/user.png</file>
+    <file>icons/video.png</file>
+    <file>icons/whatsapp logo.png</file>
+    <file>icons/fondo.jpg</file>
+  </qresource>
+</RCC>
