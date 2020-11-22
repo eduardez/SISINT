@@ -44,11 +44,10 @@ class NombreApp:
     def startApp(self):
         '''Comenzar el flujo principal de la aplicacion'''
         self.logger.info('Iniciando App...')
-        # if(self.login_controller_instance.ui.exec_() == QDialog.Accepted):
-        #     self.menu_controller_instance._exec()
-        # else:
-        #     self.cleanInstances()   
-        self.menu_controller_instance._exec()
+        if(self.login_controller_instance.ui.exec_() == QDialog.Accepted):
+            self.menu_controller_instance._exec()
+        else:
+            self.cleanInstances()   
 
 
 if __name__ == "__main__":
