@@ -19,15 +19,16 @@ path_dict = {
 
 # Open WhatsApp URL in chrome browser
 
-class Guasap():
-    def __init__(self):
-        self.options = webdriver.ChromeOptions()
-        self.options.add_argument(r"user-data-dir=./cache") #Guardar cache
+class WhatsAppController():
+    def __init__(self, WPController = None):
+        #self.options = webdriver.ChromeOptions()
+        #self.options.add_argument(r"user-data-dir=./cache") #Guardar cache
         #self.options.add_argument("--headless") #ejecutar minimizado
         #self.options.add_argument("--window-size=0,0") 
         self.wait = None
-        self.driver = webdriver.Chrome(executable_path="/usr/local/share/chromedriver", chrome_options=self.options)
-        
+        #self.driver = webdriver.Chrome(executable_path="/usr/local/share/chromedriver", chrome_options=self.options)
+        self.driver = webdriver.Firefox(executable_path='./Resources/geckodriver-v0.28.0-linux64/geckodriver')
+        self.startConnection()
 
     def startConnection(self):
         self.driver.get("https://web.whatsapp.com/")

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>icons/danger.png</file>
     <file>icons/user.png</file>
     <file>icons/file.png</file>
     <file>icons/close.png</file>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>751</width>
-    <height>600</height>
+    <width>1237</width>
+    <height>764</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background:url(:/icons/fondo.jpg);
-font: century-gothic;</string>
+color: rgb(20, 20, 20);
+font: &quot;century-gothic&quot;;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -110,6 +111,12 @@ border-radius:40px;
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
            <widget class="QPushButton" name="btn_enviar">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>65</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>180</width>
@@ -163,6 +170,18 @@ border-radius:7px;
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QPushButton" name="btn_mensajes">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>65</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>180</width>
@@ -216,6 +235,12 @@ border-radius:8px;
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QPushButton" name="btn_colegios">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>65</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>180</width>
@@ -342,6 +367,42 @@ border-radius:3px;
             </property>
            </spacer>
           </item>
+          <item>
+           <widget class="QPushButton" name="btn_settings">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QPushButton{
+color:black;
+background:none;
+border-radius:1px;
+}
+QPushButton:hover{
+background-color:rgb(255, 106, 108);
+font-color:black;
+border-radius:3px;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources/icons.qrc">
+              <normaloff>:/icons/whatsapp logo.png</normaloff>:/icons/whatsapp logo.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -368,15 +429,29 @@ text-shadow: black;
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>700</height>
+          </size>
+         </property>
          <property name="styleSheet">
-          <string notr="true">background:rgb(247, 247, 247);
-</string>
+          <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="sw_enviar">
           <layout class="QVBoxLayout" name="verticalLayout_7">
+           <property name="spacing">
+            <number>13</number>
+           </property>
            <item>
             <widget class="QLabel" name="lbl_selgrupos">
              <property name="maximumSize">
@@ -384,6 +459,9 @@ text-shadow: black;
                <width>16777215</width>
                <height>20</height>
               </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
              </property>
              <property name="text">
               <string>SELECCIONAR GRUPO:</string>
@@ -399,7 +477,7 @@ text-shadow: black;
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background:white;</string>
+              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
              </property>
              <item>
               <property name="text">
@@ -442,6 +520,9 @@ text-shadow: black;
                <height>20</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
+             </property>
              <property name="text">
               <string>VER MIEMBROS:</string>
              </property>
@@ -456,7 +537,7 @@ text-shadow: black;
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background:white;</string>
+              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
              </property>
              <item>
               <property name="text">
@@ -486,7 +567,7 @@ text-shadow: black;
              <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
-               <height>10</height>
+               <height>31</height>
               </size>
              </property>
             </spacer>
@@ -499,15 +580,18 @@ text-shadow: black;
                <height>20</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
+             </property>
              <property name="text">
-              <string>TÍTULO DEL MENSAJE:</string>
+              <string> TÍTULO</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="le_titulo">
              <property name="styleSheet">
-              <string notr="true">background:white;</string>
+              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
              </property>
             </widget>
            </item>
@@ -519,28 +603,18 @@ text-shadow: black;
                <height>20</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
+             </property>
              <property name="text">
-              <string>ASUNTO DEL MENSAJE:</string>
+              <string> ASUNTO</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="le_asunto">
              <property name="styleSheet">
-              <string notr="true">background:white;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="lbl_cuerpo">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>CUERPO DEL MENSAJE:</string>
+              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
              </property>
             </widget>
            </item>
@@ -572,6 +646,22 @@ text-shadow: black;
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
+               <widget class="QLabel" name="lbl_cuerpo">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>CUERPO</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <spacer name="spacer_iconos1">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
@@ -581,7 +671,7 @@ text-shadow: black;
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>210</width>
+                  <width>160</width>
                   <height>20</height>
                  </size>
                 </property>
@@ -718,6 +808,12 @@ text-shadow: black;
               </item>
               <item>
                <widget class="QPushButton" name="btn_forms">
+                <property name="minimumSize">
+                 <size>
+                  <width>256</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>140</width>
@@ -746,20 +842,22 @@ text-shadow: black;
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="le_cuerpo">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>600</height>
-              </size>
-             </property>
+            <widget class="QPlainTextEdit" name="le_cuerpo">
              <property name="styleSheet">
-              <string notr="true">background:white;</string>
+              <string notr="true">background:white;
+font: 12pt &quot;century-gothic&quot;;
+border: 1px solid black;</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QPushButton" name="btn_masivo">
+             <property name="minimumSize">
+              <size>
+               <width>210</width>
+               <height>35</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
                <width>200</width>
@@ -785,7 +883,7 @@ border-radius:8px;
 }</string>
              </property>
              <property name="text">
-              <string>   REALIZAR ENVÍO MASIVO</string>
+              <string>REALIZAR ENVÍO MASIVO</string>
              </property>
              <property name="iconSize">
               <size>
@@ -798,13 +896,16 @@ border-radius:8px;
           </layout>
          </widget>
          <widget class="QWidget" name="sw_mensajes">
-          <layout class="QVBoxLayout" name="verticalLayout_8">
+          <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
            <item>
             <widget class="QFrame" name="frame_2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
+               <horstretch>1</horstretch>
+               <verstretch>1</verstretch>
               </sizepolicy>
              </property>
              <property name="maximumSize">
@@ -819,15 +920,57 @@ border-radius:8px;
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_9">
+             <layout class="QVBoxLayout" name="verticalLayout_9" stretch="0,0">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
               <item>
                <widget class="QTableWidget" name="tableWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>1</horstretch>
+                  <verstretch>1</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
                   <height>200</height>
                  </size>
                 </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderCascadingSectionResizes">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderDefaultSectionSize">
+                 <number>106</number>
+                </attribute>
+                <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderCascadingSectionResizes">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="verticalHeaderMinimumSectionSize">
+                 <number>18</number>
+                </attribute>
+                <attribute name="verticalHeaderDefaultSectionSize">
+                 <number>32</number>
+                </attribute>
+                <attribute name="verticalHeaderHighlightSections">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderStretchLastSection">
+                 <bool>false</bool>
+                </attribute>
                 <row>
                  <property name="text">
                   <string>New Row</string>
@@ -882,6 +1025,12 @@ border-radius:8px;
               </item>
               <item>
                <widget class="QPushButton" name="pushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -893,13 +1042,14 @@ border-radius:8px;
 font:14px;
 }
 QPushButton{
-color:white;
-background:black;
+color:black;
+background:white;
+border: 1px solid black;
 border-radius:8px;
 }
+
 QPushButton:hover{
 background-color:rgb(0, 170, 0);
-font-color:white;
 border-radius:8px;
 }</string>
                 </property>
@@ -921,25 +1071,9 @@ border-radius:8px;
              </layout>
             </widget>
            </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page">
+         <widget class="QWidget" name="sw_colegio">
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0">
             <widget class="QFrame" name="frame_3">
@@ -952,6 +1086,12 @@ border-radius:8px;
              <layout class="QVBoxLayout" name="verticalLayout_12">
               <item>
                <widget class="QTabWidget" name="tabWidget">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="currentIndex">
                  <number>1</number>
                 </property>
@@ -985,21 +1125,20 @@ border-radius:8px;
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
-                         <width>40</width>
+                         <width>18</width>
                          <height>20</height>
                         </size>
                        </property>
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lbl_selgrupo">
-                       <property name="text">
-                        <string>SELECCIONAR GRUPO</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QComboBox" name="cb_selgrupo">
+                       <property name="minimumSize">
+                        <size>
+                         <width>87</width>
+                         <height>0</height>
+                        </size>
+                       </property>
                        <property name="maximumSize">
                         <size>
                          <width>40</width>
@@ -1026,6 +1165,13 @@ border-radius:8px;
                          <string>4ºA</string>
                         </property>
                        </item>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lbl_selgrupo">
+                       <property name="text">
+                        <string>SELECCIONAR GRUPO</string>
+                       </property>
                       </widget>
                      </item>
                     </layout>
@@ -1058,6 +1204,12 @@ border-radius:8px;
                      </item>
                      <item>
                       <widget class="QPushButton" name="btn_addaalu">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>35</height>
+                        </size>
+                       </property>
                        <property name="maximumSize">
                         <size>
                          <width>100</width>
@@ -1066,7 +1218,7 @@ border-radius:8px;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">*{
-font:14px;
+font:17px;
 }
 QPushButton{
 color:white;
@@ -1086,6 +1238,12 @@ border-radius:8px;
                      </item>
                      <item>
                       <widget class="QPushButton" name="btn_editalu">
+                       <property name="minimumSize">
+                        <size>
+                         <width>115</width>
+                         <height>36</height>
+                        </size>
+                       </property>
                        <property name="maximumSize">
                         <size>
                          <width>100</width>
@@ -1094,7 +1252,7 @@ border-radius:8px;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">*{
-font:14px;
+font:17px;
 }
 QPushButton{
 color:white;
@@ -1114,6 +1272,12 @@ border-radius:8px;
                      </item>
                      <item>
                       <widget class="QPushButton" name="btn_borraralu">
+                       <property name="minimumSize">
+                        <size>
+                         <width>115</width>
+                         <height>36</height>
+                        </size>
+                       </property>
                        <property name="maximumSize">
                         <size>
                          <width>100</width>
@@ -1122,7 +1286,7 @@ border-radius:8px;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">*{
-font:14px;
+font:17px;
 }
 QPushButton{
 color:white;
@@ -1239,6 +1403,12 @@ border-radius:8px;
                      </item>
                      <item>
                       <widget class="QPushButton" name="btn_addclase">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>35</height>
+                        </size>
+                       </property>
                        <property name="maximumSize">
                         <size>
                          <width>100</width>
@@ -1247,7 +1417,7 @@ border-radius:8px;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">*{
-font:14px;
+font:17px;
 }
 QPushButton{
 color:white;
@@ -1267,6 +1437,12 @@ border-radius:8px;
                      </item>
                      <item>
                       <widget class="QPushButton" name="btn_editclase">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>35</height>
+                        </size>
+                       </property>
                        <property name="maximumSize">
                         <size>
                          <width>100</width>
@@ -1275,7 +1451,7 @@ border-radius:8px;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">*{
-font:14px;
+font:17px;
 }
 QPushButton{
 color:white;
@@ -1295,6 +1471,12 @@ border-radius:8px;
                      </item>
                      <item>
                       <widget class="QPushButton" name="btn_borrarclase">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>35</height>
+                        </size>
+                       </property>
                        <property name="maximumSize">
                         <size>
                          <width>100</width>
@@ -1303,7 +1485,7 @@ border-radius:8px;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">*{
-font:14px;
+font:17px;
 }
 QPushButton{
 color:white;
