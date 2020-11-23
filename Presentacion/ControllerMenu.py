@@ -2,8 +2,8 @@ import os
 import sys
 
 from PyQt5 import QtGui,QtCore
-from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QDialogButtonBox, QFormLayout
-from PySide2.QtWidgets import QHeaderView, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QDialogButtonBox, QFormLayout, QComboBox
+from PySide2.QtWidgets import QHeaderView, QTableWidgetItem, QMessageBox
 from PySide2.QtCore import QFile, Qt
 from PySide2.QtUiTools import QUiLoader
 from Presentacion.UI_Files.Resources import icons
@@ -25,6 +25,10 @@ class Menu:
         self.setTablaClase()
         self.adjustTables()
         self.ui.stackedWidget.setCurrentIndex(3)
+        #método para eliminar todo base de datos
+        ClaseDAO.conectarBD()
+        #ClaseDAO.eliminarBD()
+        self.setTablaAlumno()
 
     def _exec(self):
         self.ui.show()
@@ -64,6 +68,7 @@ class Menu:
         self.ui.btn_addalu.clicked.connect(self.añadirAlumno)
         self.ui.btn_editalu.clicked.connect(self.editarAlumno)
         self.ui.btn_borraralu.clicked.connect(self.borrarAlumno)
+        self.ui.cb_selgrupo.currentTextChanged.connect(self.setTablaAlumno)
         ####### BOTONES PESTAÑA CLASES #######
         self.ui.btn_addclase.clicked.connect(self.añadirClase)
         self.ui.btn_editclase.clicked.connect(self.editarClase)
@@ -75,24 +80,78 @@ class Menu:
 
 ################ FUNCIONES COLEGIO PESTAÑA ALUMNO #######################
     def añadirAlumno(self):
-        alumno = InputDialog_Alumno()
-        alumno.exec()
-        nombre_alu, nombre_tut, tlf, dni = alumno.getInputs()
-        AlumnoDAO.añadirAlumno(nombre_alu,nombre_tut,tlf,dni)
+        items = ClaseDAO.getClases()
+        clases = []
+        for i in items:
+            clases.append(i.__str__())
+
+        alumno = InputDialog_Alumno(clases)
+        añadir = alumno.exec()
+        if añadir == 1:
+            nombre_alu, nombre_tut, tlf, dni, clase = alumno.getInputs()
+            clase_alumno = ClaseDAO.buscarClase(clase)
+            for i in clase_alumno: #PONERLO MÁS ELEGANTE
+                c_alumno = i
+            AlumnoDAO.añadirAlumno(nombre_alu,nombre_tut,tlf,dni,c_alumno)
+            self.setTablaAlumno()
     def editarAlumno(self):
         pass
 
     def borrarAlumno(self):
         pass
+
+    def setTablaAlumno(self):
+        clase_actual = self.ui.cb_selgrupo.currentText()
+        alumnos = AlumnoDAO.getAlumnoPorClase(clase_actual)
+        
+        self.borrarTabla(self.ui.tbl_alumnos)
+        contador = 0
+        for a in alumnos:
+            numRows = self.ui.tbl_alumnos.rowCount()
+            self.ui.tbl_alumnos.insertRow(contador)
+            
+            nombre_alumno = a.getNombreAlumno()
+            nombre_tutor = a.getNombreTutor()
+            tlf_tutor = a.getTelefono()
+            dni_tutor = a.getDNI()
+
+            item = QTableWidgetItem(nombre_alumno)
+            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+            self.ui.tbl_alumnos.setItem(contador,0,item)
+
+            item = QTableWidgetItem(nombre_tutor)
+            item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+            self.ui.tbl_alumnos.setItem(contador,1,item)
+
+            item = QTableWidgetItem(str(tlf_tutor))
+            item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+            self.ui.tbl_alumnos.setItem(contador,2,item)
+
+            item = QTableWidgetItem(str(dni_tutor))
+            item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+            self.ui.tbl_alumnos.setItem(contador,3,item)
+
+            contador = contador + 1
+
 ################ FUNCIONES COLEGIO PESTAÑA CLASES #######################
  
     def añadirClase(self):
-        clase = InputDialog_Clase()
-        clase.exec()
-        curso, letra = clase.getInputs()
-        ClaseDAO.añadirClase(curso,letra)
-        self.setClases()
-        self.setTablaClase() ### Para que se muestre la nueva fila añadida en la tabla.
+        aux = [] #Esto es necesario para la edición, aqui se le pasa una lista vacía
+        clase = InputDialog_Clase(aux)
+        añadir = clase.exec()
+        if añadir == 1:
+            curso, letra = clase.getInputs()
+            valor = ClaseDAO.añadirClase(curso,letra)
+            if valor == True:
+                self.setClases()
+                self.setTablaClase() ### Para que se muestre la nueva fila añadida en la tabla.
+            else:
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText("La clase ya estaba anteriormente introducida en el sistema")
+                msg.setWindowTitle("Error")
+                msg.exec_()
 
     def editarClase(self):
         row = self.ui.tbl_clases.currentRow()
@@ -101,12 +160,14 @@ class Menu:
         if (cursoV.text() == None) : ### Este IF ELSE NO FUNCIONA MUY BIEN
             print("NO HAY TEXTO, NO SE PUEDE EDITAR")
         else:
-            clase = InputDialog_Clase()
-            clase.exec()
-            cursoN, letraN = clase.getInputs()
-            ClaseDAO.editarClase(cursoV.text(),letraV.text(),cursoN,letraN)
-            self.setClases()
-            self.setTablaClase() # Para que se muestre la nueva fila editada en la tabla.
+            clase_elegida = [cursoV.text(),letraV.text()]
+            clase = InputDialog_Clase(clase_elegida)
+            editar = clase.exec()
+            if editar == 1:
+                cursoN, letraN = clase.getInputs()
+                ClaseDAO.editarClase(cursoV.text(),letraV.text(),cursoN,letraN)
+                self.setClases()
+                self.setTablaClase() # Para que se muestre la nueva fila editada en la tabla.
 
     def borrarClase(self):
         row = self.ui.tbl_clases.currentRow()
@@ -125,7 +186,7 @@ class Menu:
         self.ui.cb_selgrupo.addItems(items_añadir)
     
     def setTablaClase(self):
-        self.ui.tbl_clases.clearContents() #### Borrar la tabla y volver a recorrer los registros de la BBDD (PIERDE LA CABECERA)
+        self.borrarTabla(self.ui.tbl_clases)
         items = ClaseDAO.getClases()
         contador = 0
         for i in items:
@@ -144,73 +205,98 @@ class Menu:
             self.ui.tbl_clases.setItem(contador,1,item)
 
             contador = contador + 1
+    
+    def borrarTabla(self,tabla):
+        while tabla.rowCount() > 0:
+            tabla.removeRow(0)
 
 class InputDialog_Clase(QDialog):
-    def __init__(self, parent=None):
+    def __init__(self,clase_elegida, parent=None):
         super().__init__(parent)
 
         self.setWindowTitle("Datos Clase")
-        self.first = QLineEdit(self)
-        self.second = QLineEdit(self)
+        self.curso = QLineEdit(self)
+        self.clase = QLineEdit(self)
 
         self.onlyInt = QtGui.QIntValidator()
-        self.first.setValidator(self.onlyInt)
+        self.curso.setValidator(self.onlyInt)
 
         reg_ex = QtCore.QRegExp("[A-Z]")
         input_validator = QtGui.QRegExpValidator(reg_ex,self)
-        self.second.setValidator(input_validator)
+        self.clase.setValidator(input_validator)
 
-        self.first.setMaxLength(1)
-        self.second.setMaxLength(1)
+        self.curso.setMaxLength(1)
+        self.clase.setMaxLength(1)
 
-        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self)
+        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self)
+        self.buttonBox.setEnabled(False)
 
         layout = QFormLayout(self)
-        layout.addRow("Curso", self.first)
-        layout.addRow("Clase", self.second)
-        layout.addWidget(buttonBox)
+        layout.addRow("Curso", self.curso)
+        layout.addRow("Clase", self.clase)
+        layout.addWidget(self.buttonBox)
+        #self.curso.setText("2")
 
-        buttonBox.accepted.connect(self.accept)
-        buttonBox.rejected.connect(self.reject)
+        if len(clase_elegida) > 0:
+            self.curso.setText(str(clase_elegida[0]))
+            self.clase.setText(str(clase_elegida[1]))
+            self.buttonBox.setEnabled(True)
+
+        self.curso.textChanged.connect(self.comprobarTexto)
+        self.clase.textChanged.connect(self.comprobarTexto)
+
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
 
     def getInputs(self):
-        return (self.first.text(), self.second.text())
+        return (self.curso.text(), self.clase.text())
+
+    def comprobarTexto(self):
+        if self.curso.text() != "" and self.clase.text() != "":
+            self.buttonBox.setEnabled(True)
+        else:
+            self.buttonBox.setEnabled(False)
 
 class InputDialog_Alumno(QDialog):
-    def __init__(self, parent=None):
+    def __init__(self, clases, parent=None):
         super().__init__(parent)
+        self.clases = clases
 
         self.setWindowTitle("Datos Alumno")
-        self.first = QLineEdit(self)
-        self.second = QLineEdit(self)
-        self.third = QLineEdit(self)
-        self.fourth = QLineEdit(self)
+        self.alumno = QLineEdit(self)
+        self.tutor = QLineEdit(self)
+        self.telefono = QLineEdit(self)
+        self.dni = QLineEdit(self)
+        self.elegirClase = QComboBox(self)
+
+        self.elegirClase.addItems(self.clases)
 
         reg_ex = QtCore.QRegExp("[A-Za-z]+")
         input_validator = QtGui.QRegExpValidator(reg_ex,self)
-        self.first.setValidator(input_validator)
-        self.second.setValidator(input_validator)
+        self.alumno.setValidator(input_validator)
+        self.alumno.setValidator(input_validator)
 
         self.onlyInt = QtGui.QIntValidator()
-        self.third.setValidator(self.onlyInt)
+        self.telefono.setValidator(self.onlyInt)
 
-        self.first.setMaxLength(30)
-        self.second.setMaxLength(30)
-        self.third.setMaxLength(9)
-        self.fourth.setMaxLength(9)
+        self.alumno.setMaxLength(30)
+        self.tutor.setMaxLength(30)
+        self.telefono.setMaxLength(9)
+        self.dni.setMaxLength(9)
 
         buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self)
 
         layout = QFormLayout(self)
-        layout.addRow("Alumno", self.first)
-        layout.addRow("Tutor", self.second)
-        layout.addRow("Tlf.", self.third)
-        layout.addRow("DNI", self.fourth)
+        layout.addRow("Alumno", self.alumno)
+        layout.addRow("Tutor", self.tutor)
+        layout.addRow("Tlf.", self.telefono)
+        layout.addRow("DNI", self.dni)
+        layout.addRow("Clase",self.elegirClase)
         layout.addWidget(buttonBox)
 
         buttonBox.accepted.connect(self.accept)
         buttonBox.rejected.connect(self.reject)
 
     def getInputs(self):
-        return (self.first.text(), self.second.text(), self.third.text(), self.fourth.text())      
+        return (self.alumno.text(), self.tutor.text(), self.telefono.text(), self.dni.text(),self.elegirClase.currentText())
         
