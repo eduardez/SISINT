@@ -1,23 +1,23 @@
 import Persistencia.DB as DB
 from Persistencia.Modelos import Alumno, Clase
 
-def conectarBD():
+def conectarBD(): ### ESTE METODO AL ESTAR EN ALUMNODAO ESTE DA IGUAL, NO SE VA A EJECUTAR NUNCA, HABRÁ QUE QUITARLO.
     #DB.Base.metadata.drop_all(DB.engine) ## Si en algun momento hace falta borrar las filas de toda la base de datos.
     DB.Base.metadata.create_all(DB.engine)
 
-def añadirClase(curso,clase):
-    clase = Clase(clase=curso,letra=clase)
-    DB.session.add(clase)
+def añadirAlumno(nombre_alu,nombre_tut,tlf,dni):
+    alumno = Alumno(nombre_alumno=nombre_alu,nombre_tutor=nombre_tut,tlf_tutor=tlf,dni_tutor=dni)
+    DB.session.add(alumno)
     DB.session.commit()
 
-def borrarClase(curso,clase):
+def borrarAlumno(curso,clase):
     DB.session.query(Clase).filter(
         Clase.clase == curso,
         Clase.letra == clase
     ).delete()
     DB.session.commit()
 
-def editarClase(curso,clase,cursoN,claseN):
+def editarAlumno(curso,clase,cursoN,claseN):
     DB.session.query(Clase).filter(
         Clase.clase == curso,
         Clase.letra == clase
@@ -27,8 +27,7 @@ def editarClase(curso,clase,cursoN,claseN):
     })
     DB.session.commit()
 
-def getClases():
-    consultaClase = DB.session.query(Clase).all()
+def getAlumno():
+    consultaAlumno = DB.session.query(Alumno).all()
     
-    return consultaClase
-
+    return consultaAlumno

@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1237</width>
+    <width>1350</width>
     <height>764</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>HOME</string>
+   <string>School Massive WhatsApp - Menú Principal</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background:url(:/icons/fondo.jpg);
@@ -445,7 +445,7 @@ text-shadow: black;
           <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="sw_enviar">
           <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -939,7 +939,7 @@ border-radius:8px;
                  </size>
                 </property>
                 <attribute name="horizontalHeaderVisible">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </attribute>
                 <attribute name="horizontalHeaderCascadingSectionResizes">
                  <bool>false</bool>
@@ -954,7 +954,7 @@ border-radius:8px;
                  <bool>false</bool>
                 </attribute>
                 <attribute name="verticalHeaderVisible">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </attribute>
                 <attribute name="verticalHeaderCascadingSectionResizes">
                  <bool>false</bool>
@@ -1093,7 +1093,7 @@ border-radius:8px;
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="alumnos">
                  <attribute name="title">
@@ -1203,7 +1203,7 @@ border-radius:8px;
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="btn_addaalu">
+                      <widget class="QPushButton" name="btn_addalu">
                        <property name="minimumSize">
                         <size>
                          <width>120</width>
@@ -1312,59 +1312,24 @@ border-radius:8px;
                     <attribute name="horizontalHeaderCascadingSectionResizes">
                      <bool>true</bool>
                     </attribute>
-                    <row>
-                     <property name="text">
-                      <string>New Row</string>
-                     </property>
-                    </row>
-                    <row>
-                     <property name="text">
-                      <string>New Row</string>
-                     </property>
-                    </row>
-                    <row>
-                     <property name="text">
-                      <string>New Row</string>
-                     </property>
-                    </row>
-                    <row>
-                     <property name="text">
-                      <string>New Row</string>
-                     </property>
-                    </row>
-                    <row>
-                     <property name="text">
-                      <string>New Row</string>
-                     </property>
-                    </row>
-                    <row>
-                     <property name="text">
-                      <string>New Row</string>
-                     </property>
-                    </row>
                     <column>
                      <property name="text">
-                      <string>New Column</string>
+                      <string>Alumno</string>
                      </property>
                     </column>
                     <column>
                      <property name="text">
-                      <string>New Column</string>
+                      <string>Tutor</string>
                      </property>
                     </column>
                     <column>
                      <property name="text">
-                      <string>New Column</string>
+                      <string>Tlf. Tutor</string>
                      </property>
                     </column>
                     <column>
                      <property name="text">
-                      <string>New Column</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>New Column</string>
+                      <string>DNI Tutor</string>
                      </property>
                     </column>
                    </widget>
@@ -1521,11 +1486,6 @@ border-radius:8px;
                     <column>
                      <property name="text">
                       <string>NºALUMNOS</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>PROFESOR</string>
                      </property>
                     </column>
                    </widget>
