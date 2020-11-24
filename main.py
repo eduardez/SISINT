@@ -57,23 +57,6 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # class MainMenu(cmd.Cmd):
 #     #guasap = Guasap()
 #     intro = 'Watsss 0.0.1'

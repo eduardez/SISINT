@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>School Massive WhatsApp - Menú Principal</string>
+   <string>School Massive WhatsApp</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background:url(:/icons/fondo.jpg);
@@ -445,7 +445,7 @@ text-shadow: black;
           <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="sw_enviar">
           <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -939,7 +939,7 @@ border-radius:8px;
                  </size>
                 </property>
                 <attribute name="horizontalHeaderVisible">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </attribute>
                 <attribute name="horizontalHeaderCascadingSectionResizes">
                  <bool>false</bool>
@@ -948,10 +948,10 @@ border-radius:8px;
                  <number>106</number>
                 </attribute>
                 <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </attribute>
                 <attribute name="horizontalHeaderStretchLastSection">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </attribute>
                 <attribute name="verticalHeaderVisible">
                  <bool>false</bool>
@@ -973,27 +973,17 @@ border-radius:8px;
                 </attribute>
                 <row>
                  <property name="text">
-                  <string>New Row</string>
+                  <string>1</string>
                  </property>
                 </row>
                 <row>
                  <property name="text">
-                  <string>New Row</string>
+                  <string>2</string>
                  </property>
                 </row>
                 <row>
                  <property name="text">
-                  <string>New Row</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>New Row</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>New Row</string>
+                  <string>3</string>
                  </property>
                 </row>
                 <column>
@@ -1016,11 +1006,66 @@ border-radius:8px;
                   <string>GRUPO</string>
                  </property>
                 </column>
-                <column>
+                <item row="0" column="0">
                  <property name="text">
-                  <string/>
+                  <string>12/10/2020</string>
                  </property>
-                </column>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>Examen Lengua</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>Los alumnos tendrán un examen el próximo Lunes de Lengua</string>
+                 </property>
+                </item>
+                <item row="0" column="3">
+                 <property name="text">
+                  <string>6B</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>14/10/2020</string>
+                 </property>
+                </item>
+                <item row="1" column="1">
+                 <property name="text">
+                  <string>Autorización</string>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string>Los alumnos que quieran asistir al teatro el proximo miercoles deberan entregar la autorización</string>
+                 </property>
+                </item>
+                <item row="1" column="3">
+                 <property name="text">
+                  <string>5A</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>19/10/2020</string>
+                 </property>
+                </item>
+                <item row="2" column="1">
+                 <property name="text">
+                  <string>Calificaciones Examen Lengua</string>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string>Cada alumno ha recibido hoy su calificación del examen realizado esta semana.</string>
+                 </property>
+                </item>
+                <item row="2" column="3">
+                 <property name="text">
+                  <string>6B</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>
@@ -1512,7 +1557,7 @@ border-radius:8px;
              <property name="styleSheet">
               <string notr="true">background:black;
 color:white;
-font: 75 14pt &quot;Calibri&quot;,white;</string>
+font: 75 28pt &quot;Impact&quot;,white;</string>
              </property>
              <property name="text">
               <string>   BIENVENIDO A SCHOOL MASSIVE WHATSAPP</string>
@@ -1530,7 +1575,7 @@ font: 75 14pt &quot;Calibri&quot;,white;</string>
              <property name="styleSheet">
               <string notr="true">background:black;
 color:white;
-font: 75 10pt &quot;Calibri&quot;,white;</string>
+font: 75 18pt &quot;Impact&quot;,white;</string>
              </property>
              <property name="text">
               <string> ENVIAR MENSAJES</string>
@@ -1546,7 +1591,7 @@ font: 75 10pt &quot;Calibri&quot;,white;</string>
               </size>
              </property>
              <property name="text">
-              <string> Esta opción permite crear un mensaje y enviarlo masivamente a la cantidad de contactos que desee.</string>
+              <string> Creación de un mensaje y posterior envío masivo a los contactos seleccionados.</string>
              </property>
             </widget>
            </item>
@@ -1561,7 +1606,7 @@ font: 75 10pt &quot;Calibri&quot;,white;</string>
              <property name="styleSheet">
               <string notr="true">background:black;
 color:white;
-font: 75 10pt &quot;Calibri&quot;,white;</string>
+font: 75 18pt &quot;Impact&quot;,white;</string>
              </property>
              <property name="text">
               <string> MENSAJES</string>
@@ -1577,7 +1622,7 @@ font: 75 10pt &quot;Calibri&quot;,white;</string>
               </size>
              </property>
              <property name="text">
-              <string> Esta opción permite visualizar un historial de los mensajes que  se han enviado.</string>
+              <string> Visualización del historial de mensajes enviados desde el centro.</string>
              </property>
             </widget>
            </item>
@@ -1592,7 +1637,7 @@ font: 75 10pt &quot;Calibri&quot;,white;</string>
              <property name="styleSheet">
               <string notr="true">background:black;
 color:white;
-font: 75 10pt &quot;Calibri&quot;,white;</string>
+font: 75 18pt &quot;Impact&quot;,white;</string>
              </property>
              <property name="text">
               <string> COLEGIO</string>
@@ -1608,7 +1653,7 @@ font: 75 10pt &quot;Calibri&quot;,white;</string>
               </size>
              </property>
              <property name="text">
-              <string> Esta opción permite añadir, editar y borrar alumnos y clases.</string>
+              <string> Gestión de los grupos de clase y sus alumnos.</string>
              </property>
             </widget>
            </item>

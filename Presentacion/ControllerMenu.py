@@ -1,5 +1,6 @@
 import os
 import sys
+import webbrowser
 
 from PyQt5 import QtGui,QtCore
 from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QDialogButtonBox, QFormLayout, QComboBox
@@ -8,7 +9,7 @@ from PySide2.QtCore import QFile, Qt
 from PySide2.QtUiTools import QUiLoader
 from Presentacion.UI_Files.Resources import icons
 
-from Presentacion import ControllerDebug
+from Presentacion import ControllerDebug,ControllerLogin
 from Persistencia import ClaseDAO, AlumnoDAO
 
 
@@ -25,8 +26,9 @@ class Menu:
         self.setTablaClase()
         self.adjustTables()
         self.ui.stackedWidget.setCurrentIndex(3)
-        #método para eliminar todo base de datos
+        # Método para conectar base de datos
         ClaseDAO.conectarBD()
+        # Método para eliminar toda la base de datos
         #ClaseDAO.eliminarBD()
         self.setTablaAlumno()
 
@@ -37,16 +39,22 @@ class Menu:
         ClaseDAO.conectarBD()
 
     def setActions(self):
+        self.ui.btn_user.clicked.connect(self.inicio)
         self.ui.btn_enviar.clicked.connect(self.enviarmsg)
         self.ui.btn_mensajes.clicked.connect(self.mensajes)
         self.ui.btn_colegios.clicked.connect(self.colegio)
         self.ui.btn_settings.clicked.connect(self.openDebugSettings)
+        self.ui.btn_salir.clicked.connect(self.salirApp)
+        
 
     def adjustTables(self):
         tablas = [self.ui.tableWidget, self.ui.tbl_alumnos, self.ui.tbl_clases]
         for tbl in tablas:
             tbl.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
             tbl.verticalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+    def inicio(self):
+        self.ui.stackedWidget.setCurrentIndex(3)
 
     def enviarmsg(self):
         self.ui.stackedWidget.setCurrentIndex(0)
@@ -57,7 +65,7 @@ class Menu:
 
     def mensajes(self):
         self.ui.stackedWidget.setCurrentIndex(1)
-        self.ui.btn_masivo.clicked.connect(self.ver_googleforms)
+        self.ui.pushButton.clicked.connect(self.ver_googleforms)
 
     def ver_googleforms(self):
         webbrowser.open('https://www.google.com/intl/es_es/forms/about/') # no se que es webbrowser y por eso no va el boton
@@ -74,11 +82,15 @@ class Menu:
         self.ui.btn_editclase.clicked.connect(self.editarClase)
         self.ui.btn_borrarclase.clicked.connect(self.borrarClase)
         
+    def salirApp(self):
+        self.ui.close()
+
     def openDebugSettings(self):
         deb = ControllerDebug.DebugFrame(self.wp_controller)
         deb.ui.exec_()
 
 ################ FUNCIONES COLEGIO PESTAÑA ALUMNO #######################
+    
     def añadirAlumno(self):
         aux = []
         items = ClaseDAO.getClases()
@@ -339,6 +351,7 @@ class InputDialog_Alumno(QDialog):
         self.dni.setMaxLength(9)
 
         self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self)
+        self.buttonBox.setEnabled(False)
 
         layout = QFormLayout(self)
         layout.addRow("Alumno", self.alumno)
@@ -346,7 +359,7 @@ class InputDialog_Alumno(QDialog):
         layout.addRow("Tlf.", self.telefono)
         layout.addRow("DNI", self.dni)
         layout.addRow("Clase",self.elegirClase)
-        layout.addWidget(self.buttonBox) #self.buttonBox¿?
+        layout.addWidget(self.buttonBox)
 
         if len(alumno_elegido) > 0:
             self.alumno.setText(str(alumno_elegido[0]))
@@ -356,8 +369,19 @@ class InputDialog_Alumno(QDialog):
             #self.elegirClase.setText(str(alumno_elegido[1])) 
             self.buttonBox.setEnabled(True)
 
+        self.alumno.textChanged.connect(self.comprobarTexto)
+        self.tutor.textChanged.connect(self.comprobarTexto)
+        self.telefono.textChanged.connect(self.comprobarTexto)
+        self.dni.textChanged.connect(self.comprobarTexto)
+
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
 
     def getInputs(self):
         return (self.alumno.text(), self.tutor.text(), self.telefono.text(), self.dni.text(),self.elegirClase.currentText())
+
+    def comprobarTexto(self):
+        if self.alumno.text() != "" and self.tutor.text() != "" and self.telefono.text() != "" and self.dni.text() != "":
+            self.buttonBox.setEnabled(True)
+        else:
+            self.buttonBox.setEnabled(False)
