@@ -11,20 +11,23 @@ def añadirAlumno(nombre_alu,nombre_tut,tlf,dni,clase_alumno):
     DB.session.add(alumno)
     DB.session.commit()
 
-def borrarAlumno(curso,clase):
-    DB.session.query(Clase).filter(
-        Clase.clase == curso,
-        Clase.letra == clase
+def borrarAlumno(tutor,dni):
+    DB.session.query(Alumno).filter(
+        Alumno.nombre_tutor == tutor,
+        Alumno.dni_tutor == dni
     ).delete()
     DB.session.commit()
 
-def editarAlumno(curso,clase,cursoN,claseN):
-    DB.session.query(Clase).filter(
-        Clase.clase == curso,
-        Clase.letra == clase
+def editarAlumno(tutorV,dniV,alumnoN,tutorN,tlfN,dniN,claseN):
+    DB.session.query(Alumno).filter(
+        Alumno.nombre_tutor == tutorV,
+        Alumno.dni_tutor == dniV
     ).update({
-        Clase.clase: cursoN,
-        Clase.letra: claseN
+        Alumno.nombre_alumno: alumnoN,
+        Alumno.nombre_tutor: tutorN,
+        Alumno.tlf_tutor: tlfN,
+        Alumno.dni_tutor: dniN,
+        Alumno.clase_alumno_id: claseN
     })
     DB.session.commit()
 

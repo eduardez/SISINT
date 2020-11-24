@@ -48,5 +48,3 @@ def buscarClase(codigo):
     consultaClase = DB.session.query(Clase).filter(Clase.clase == int(curso), Clase.letra == str(clase)).all()
     return consultaClase
 
-
-

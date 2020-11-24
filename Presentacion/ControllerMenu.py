@@ -15,9 +15,9 @@ from Persistencia import ClaseDAO, AlumnoDAO
 class Menu:
     def __init__(self, WPController = None):
         super(Menu, self).__init__()
-        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui"))
+        #self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui"))
         ### PARA WINDOWS (SEVILLA)
-        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_menu.ui"))
+        self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_menu.ui"))
         self.wp_controller = WPController
         self.iniciarDB()
         self.setActions()
@@ -80,12 +80,13 @@ class Menu:
 
 ################ FUNCIONES COLEGIO PESTAÑA ALUMNO #######################
     def añadirAlumno(self):
+        aux = []
         items = ClaseDAO.getClases()
         clases = []
         for i in items:
             clases.append(i.__str__())
 
-        alumno = InputDialog_Alumno(clases)
+        alumno = InputDialog_Alumno(aux,clases)
         añadir = alumno.exec()
         if añadir == 1:
             nombre_alu, nombre_tut, tlf, dni, clase = alumno.getInputs()
@@ -94,11 +95,52 @@ class Menu:
                 c_alumno = i
             AlumnoDAO.añadirAlumno(nombre_alu,nombre_tut,tlf,dni,c_alumno)
             self.setTablaAlumno()
-    def editarAlumno(self):
-        pass
+
+    def editarAlumno(self): 
+        row = self.ui.tbl_alumnos.currentRow()
+        nombre_v = self.ui.tbl_alumnos.item(row, 0)
+        tutor_v = self.ui.tbl_alumnos.item(row, 1)
+        tlf_v = self.ui.tbl_alumnos.item(row, 2)
+        dni_v = self.ui.tbl_alumnos.item(row, 3)
+        if (tutor_v == None) : ### Si no selecciona ninguna fila
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Debes seleccionar el alumno a editar.")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        else:
+            alumno_elegido = [nombre_v.text(),tutor_v.text(),tlf_v.text(),dni_v.text()]
+            items = ClaseDAO.getClases()
+            clases = []
+            for i in items:
+                clases.append(i.__str__())
+
+            alumno = InputDialog_Alumno(alumno_elegido,clases)
+            editar = alumno.exec()
+            if editar == 1:
+                nombre_alu, nombre_tut, tlf, dni, clase = alumno.getInputs()
+                clase_alumno = ClaseDAO.buscarClase(clase)
+                for i in clase_alumno: #PONERLO MÁS ELEGANTE
+                    c_alumno = i
+                AlumnoDAO.editarAlumno(tutor_v.text(),dni_v.text(),nombre_alu,nombre_tut,tlf,dni,c_alumno)
+                self.setTablaAlumno()
 
     def borrarAlumno(self):
-        pass
+        row = self.ui.tbl_alumnos.currentRow()
+        tutor = self.ui.tbl_alumnos.item(row, 1)
+        dni = self.ui.tbl_alumnos.item(row, 3)
+        if (tutor == None):
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Debes seleccionar el alumno a eliminar.")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        else:
+            AlumnoDAO.borrarAlumno(tutor.text(),dni.text()) # Se borra de la bbdd.
+            self.setClases()
+            self.setTablaAlumno() # Para que se muestre la nueva tabla, con el registro borrado.
 
     def setTablaAlumno(self):
         clase_actual = self.ui.cb_selgrupo.currentText()
@@ -149,7 +191,7 @@ class Menu:
                 msg = QMessageBox()
                 msg.setIcon(QMessageBox.Critical)
                 msg.setText("Error")
-                msg.setInformativeText("La clase ya estaba anteriormente introducida en el sistema")
+                msg.setInformativeText("La clase ya estaba anteriormente introducida en el sistema.")
                 msg.setWindowTitle("Error")
                 msg.exec_()
 
@@ -157,8 +199,13 @@ class Menu:
         row = self.ui.tbl_clases.currentRow()
         cursoV = self.ui.tbl_clases.item(row, 0)
         letraV = self.ui.tbl_clases.item(row, 1)
-        if (cursoV.text() == None) : ### Este IF ELSE NO FUNCIONA MUY BIEN
-            print("NO HAY TEXTO, NO SE PUEDE EDITAR")
+        if (cursoV == None) : ### Si no selecciona ninguna fila
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Debes seleccionar una clase para editarla.")
+            msg.setWindowTitle("Error")
+            msg.exec_()
         else:
             clase_elegida = [cursoV.text(),letraV.text()]
             clase = InputDialog_Clase(clase_elegida)
@@ -173,9 +220,17 @@ class Menu:
         row = self.ui.tbl_clases.currentRow()
         curso = self.ui.tbl_clases.item(row, 0)
         letra = self.ui.tbl_clases.item(row, 1)
-        ClaseDAO.borrarClase(curso.text(),letra.text()) # Se borra de la bbdd.
-        self.setClases()
-        self.setTablaClase() # Para que se muestre la nueva tabla, con el registro borrado.
+        if(curso == None):
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Debes seleccionar una clase que eliminar.")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        else:
+            ClaseDAO.borrarClase(curso.text(),letra.text()) # Se borra de la bbdd.
+            self.setClases()
+            self.setTablaClase() # Para que se muestre la nueva tabla, con el registro borrado.
 
     def setClases(self):
         self.ui.cb_selgrupo.clear()
@@ -235,7 +290,6 @@ class InputDialog_Clase(QDialog):
         layout.addRow("Curso", self.curso)
         layout.addRow("Clase", self.clase)
         layout.addWidget(self.buttonBox)
-        #self.curso.setText("2")
 
         if len(clase_elegida) > 0:
             self.curso.setText(str(clase_elegida[0]))
@@ -258,7 +312,7 @@ class InputDialog_Clase(QDialog):
             self.buttonBox.setEnabled(False)
 
 class InputDialog_Alumno(QDialog):
-    def __init__(self, clases, parent=None):
+    def __init__(self, alumno_elegido, clases, parent=None):
         super().__init__(parent)
         self.clases = clases
 
@@ -271,10 +325,10 @@ class InputDialog_Alumno(QDialog):
 
         self.elegirClase.addItems(self.clases)
 
-        reg_ex = QtCore.QRegExp("[A-Za-z]+")
+        reg_ex = QtCore.QRegExp("[A-Za-z ]+")
         input_validator = QtGui.QRegExpValidator(reg_ex,self)
         self.alumno.setValidator(input_validator)
-        self.alumno.setValidator(input_validator)
+        self.tutor.setValidator(input_validator)
 
         self.onlyInt = QtGui.QIntValidator()
         self.telefono.setValidator(self.onlyInt)
@@ -284,7 +338,7 @@ class InputDialog_Alumno(QDialog):
         self.telefono.setMaxLength(9)
         self.dni.setMaxLength(9)
 
-        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self)
+        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self)
 
         layout = QFormLayout(self)
         layout.addRow("Alumno", self.alumno)
@@ -292,11 +346,18 @@ class InputDialog_Alumno(QDialog):
         layout.addRow("Tlf.", self.telefono)
         layout.addRow("DNI", self.dni)
         layout.addRow("Clase",self.elegirClase)
-        layout.addWidget(buttonBox)
+        layout.addWidget(self.buttonBox) #self.buttonBox¿?
 
-        buttonBox.accepted.connect(self.accept)
-        buttonBox.rejected.connect(self.reject)
+        if len(alumno_elegido) > 0:
+            self.alumno.setText(str(alumno_elegido[0]))
+            self.tutor.setText(str(alumno_elegido[1]))
+            self.telefono.setText(str(alumno_elegido[2]))
+            self.dni.setText(str(alumno_elegido[3]))
+            #self.elegirClase.setText(str(alumno_elegido[1])) 
+            self.buttonBox.setEnabled(True)
+
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
 
     def getInputs(self):
         return (self.alumno.text(), self.tutor.text(), self.telefono.text(), self.dni.text(),self.elegirClase.currentText())
-        
