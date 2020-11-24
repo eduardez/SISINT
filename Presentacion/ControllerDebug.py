@@ -21,11 +21,11 @@ class DebugFrame():
         self.ui.btn_enviar_msg.clicked.connect(self.enviarMensaje)
         self.ui.btn_buscar_contacto.clicked.connect(self.buscarUser)
 
-    def abrirPagina(self):
-        self.wp_instance.startConnection()
-
     def enviarMensaje(self):
-        pass
+        numero = self.ui.input_numero_envio.text()
+        mensaje = self.ui.input_mensaje_envio.text()
+        self.wp_instance.searchAndClick(numero)
+        self.wp_instance.sendMsg(mensaje)
 
     def buscarUser(self):
         numero = self.ui.input_buscar_contacto.text()

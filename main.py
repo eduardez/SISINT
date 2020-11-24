@@ -25,7 +25,7 @@ class NombreApp:
 
     def initInstances(self):
         '''Inicializacion de controladores, bbdd y otros'''
-        self.whatsapp_instance = WhatsAppController()
+        self.whatsapp_instance = WhatsAppController(minimizado=False, browser='firefox')
         self.login_controller_instance = ControllerLogin.Login()
         self.menu_controller_instance = ControllerMenu.Menu(self.whatsapp_instance)
         self.logger.info('Inicializacion de instancias completada')
