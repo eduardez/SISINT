@@ -23,12 +23,12 @@ path_dict = {
 RES_PATH = 'Resources'
 
 class WhatsAppController():
-    def __init__(self, minimizado=False, browser=None, driver_path=None):
+    def __init__(self, driver_installed=False, minimizado=False, browser=None):
         self.options = None
         self._OS = None
         self.browser = browser
         self.minimizado = minimizado
-        self.driver_path = driver_path
+        self.driver_path = None
         self.driver_folder_tokens = RES_PATH
         self.driver = None
         self.exec = None
@@ -38,7 +38,7 @@ class WhatsAppController():
         self.startController()
 
     def startController(self):
-        if self.driver_path != 'custom':
+        if not self.driver_installed:
             self.setBrowser()
             self.setOS()
             self.setBrowserFolder()
