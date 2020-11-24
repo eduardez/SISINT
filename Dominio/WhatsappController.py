@@ -27,7 +27,9 @@ class WhatsAppController():
         #self.options.add_argument("--window-size=0,0") 
         self.wait = None
         #self.driver = webdriver.Chrome(executable_path="/usr/local/share/chromedriver", chrome_options=self.options)
-        self.driver = webdriver.Firefox(executable_path='./Resources/geckodriver-v0.28.0-linux64/geckodriver')
+        self.driver = webdriver.Firefox(executable_path='./Resources/geckodriver-v0.28.0-linux64/geckodriver') ### (PONER ESTE VOSOTROS, QUE ES EL QUE HABÍA.)
+        #self.driver = webdriver.Firefox() ### CON ESTE ME VA A MI EN WINDOWS 10 (SEVILLA)
+
         self.startConnection()
 
     def startConnection(self):

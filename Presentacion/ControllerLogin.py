@@ -6,13 +6,15 @@ from PyQt5.QtWidgets import QApplication, QDialog
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
 from Presentacion.UI_Files.Resources import icons
-import webbrowser
 from threading import Thread
+import webbrowser
 
 class Login():
     def __init__(self):
         super(Login, self).__init__()
         self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_login.ui"))
+        ### PARA WINDOWS (SEVILLA)
+        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_login.ui"))
         self.ui.btn_iniciar.clicked.connect(self.abrir_menu)
         self.isLogged = False
         self.result_login = None

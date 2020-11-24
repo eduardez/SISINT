@@ -49,30 +49,12 @@ class NombreApp:
         else:
             self.cleanInstances()   
 
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setStyle('Fusion')
     new_instance = NombreApp()
     app.aboutToQuit.connect(lambda: new_instance.cleanInstances())
     sys.exit(app.exec_())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # class MainMenu(cmd.Cmd):
