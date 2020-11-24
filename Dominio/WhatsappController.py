@@ -23,7 +23,7 @@ path_dict = {
 RES_PATH = 'Resources'
 
 class WhatsAppController():
-    def __init__(self, driver_installed=False, minimizado=False, browser=None):
+    def __init__(self, driver_installed, browser, minimizado=False):
         self.options = None
         self._OS = None
         self.browser = browser
@@ -84,7 +84,7 @@ class WhatsAppController():
         self.driver_folder_tokens += self.exec
         split_path = self.driver_folder_tokens.split(",")
         self.driver_path = os.path.join(*split_path)            
-        print('\n\n\n \n\nPath encontrado: ' + self.driver_path)
+        print('Path encontrado: ' + self.driver_path)
 
     def setDriverConfig(self):
         if self.browser == 'firefox':
