@@ -479,21 +479,6 @@ text-shadow: black;
              <property name="styleSheet">
               <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
              </property>
-             <item>
-              <property name="text">
-               <string>GRUPO 1ºA, 27 alumnos</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>GRUPO 1ºB, 12 alumnos</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>GRUPO 2ºB, 34 alumnos</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item>
@@ -539,21 +524,6 @@ text-shadow: black;
              <property name="styleSheet">
               <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
              </property>
-             <item>
-              <property name="text">
-               <string>Alejandro Ruiz-1ºA</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Eduardo García-1ºA</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string/>
-              </property>
-             </item>
             </widget>
            </item>
            <item>

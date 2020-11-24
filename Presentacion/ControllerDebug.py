@@ -11,9 +11,9 @@ from Presentacion.UI_Files.Resources import icons
 class DebugFrame():
     def __init__(self, wp_instance):
         super(DebugFrame, self).__init__()
-        #self.ui = QUiLoader().load(QFile("./Presentacion/UI_Files/UI_Pruebas.ui"))
+        self.ui = QUiLoader().load(QFile("./Presentacion/UI_Files/UI_Pruebas.ui"))
         ###Para windows (SEVILLA)
-        self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_Pruebas.ui"))
+        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_Pruebas.ui"))
         self.wp_instance = wp_instance
         self.setActions()
 

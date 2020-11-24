@@ -16,9 +16,9 @@ from Persistencia import ClaseDAO, AlumnoDAO
 class Menu:
     def __init__(self, WPController = None):
         super(Menu, self).__init__()
-        #self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui"))
+        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui"))
         ### PARA WINDOWS (SEVILLA)
-        self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_menu.ui"))
+        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_menu.ui"))
         self.wp_controller = WPController
         self.iniciarDB()
         self.setActions()
@@ -57,8 +57,13 @@ class Menu:
         self.ui.stackedWidget.setCurrentIndex(3)
 
     def enviarmsg(self):
+        self.setMiembrosEnviarMensajes()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.btn_forms.clicked.connect(self.crear_googleforms)
+        self.setGruposEnviarMensajes()
+        self.ui.cb_grupo.currentTextChanged.connect(self.setMiembrosEnviarMensajes)
+        self.ui.btn_masivo.clicked.connect(self.enviarMensaje)
+
 
     def crear_googleforms(self):
         webbrowser.open('https://www.google.com/intl/es_es/forms/about/') # no se que es webbrowser y por eso no va el boton
@@ -89,6 +94,35 @@ class Menu:
         deb = ControllerDebug.DebugFrame(self.wp_controller)
         deb.ui.exec_()
 
+################ FUNCIONES ENVIAR MENSAJE ###############################
+
+    def setGruposEnviarMensajes(self):
+        items = ClaseDAO.getClases()
+        clases = []
+        for i in items:
+            clases.append(i.__str__())
+        self.ui.cb_grupo.addItems(clases)
+
+    def setMiembrosEnviarMensajes(self):
+        self.ui.cb_miembro.clear()
+        clase_actual = self.ui.cb_grupo.currentText()
+        if clase_actual != "":
+            items = AlumnoDAO.getAlumnoPorClase(clase_actual)
+            alumnos = []
+            for i in items:
+                alumnos.append(i.getNombreAlumno())
+            self.ui.cb_miembro.addItems(alumnos)
+    
+    def enviarMensaje(self): # Este método devuelve de momento todos los telefonos de la clase escogida
+        clase_actual = self.ui.cb_grupo.currentText()
+        if clase_actual != "":
+            items = AlumnoDAO.getAlumnoPorClase(clase_actual)
+            telefonos = []
+            for i in items:
+                telefonos.append(i.getTelefono())
+            print(telefonos)
+            #return telefonos
+
 ################ FUNCIONES COLEGIO PESTAÑA ALUMNO #######################
     
     def añadirAlumno(self):
@@ -105,8 +139,17 @@ class Menu:
             clase_alumno = ClaseDAO.buscarClase(clase)
             for i in clase_alumno: #PONERLO MÁS ELEGANTE
                 c_alumno = i
-            AlumnoDAO.añadirAlumno(nombre_alu,nombre_tut,tlf,dni,c_alumno)
-            self.setTablaAlumno()
+            valor = AlumnoDAO.añadirAlumno(nombre_alu,nombre_tut,tlf,dni,c_alumno)
+            if valor == True:
+                self.setTablaAlumno()
+            else:
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText("El DNI o el teléfono ya estaba anteriormente introducido.")
+                msg.setWindowTitle("Error")
+                msg.exec_()
+            
 
     def editarAlumno(self): 
         row = self.ui.tbl_alumnos.currentRow()
@@ -156,36 +199,37 @@ class Menu:
 
     def setTablaAlumno(self):
         clase_actual = self.ui.cb_selgrupo.currentText()
-        alumnos = AlumnoDAO.getAlumnoPorClase(clase_actual)
-        
-        self.borrarTabla(self.ui.tbl_alumnos)
-        contador = 0
-        for a in alumnos:
-            numRows = self.ui.tbl_alumnos.rowCount()
-            self.ui.tbl_alumnos.insertRow(contador)
+        if clase_actual != "":
+            alumnos = AlumnoDAO.getAlumnoPorClase(clase_actual)
             
-            nombre_alumno = a.getNombreAlumno()
-            nombre_tutor = a.getNombreTutor()
-            tlf_tutor = a.getTelefono()
-            dni_tutor = a.getDNI()
+            self.borrarTabla(self.ui.tbl_alumnos)
+            contador = 0
+            for a in alumnos:
+                numRows = self.ui.tbl_alumnos.rowCount()
+                self.ui.tbl_alumnos.insertRow(contador)
+                
+                nombre_alumno = a.getNombreAlumno()
+                nombre_tutor = a.getNombreTutor()
+                tlf_tutor = a.getTelefono()
+                dni_tutor = a.getDNI()
 
-            item = QTableWidgetItem(nombre_alumno)
-            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
-            self.ui.tbl_alumnos.setItem(contador,0,item)
+                item = QTableWidgetItem(nombre_alumno)
+                item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+                self.ui.tbl_alumnos.setItem(contador,0,item)
 
-            item = QTableWidgetItem(nombre_tutor)
-            item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
-            self.ui.tbl_alumnos.setItem(contador,1,item)
+                item = QTableWidgetItem(nombre_tutor)
+                item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+                self.ui.tbl_alumnos.setItem(contador,1,item)
 
-            item = QTableWidgetItem(str(tlf_tutor))
-            item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
-            self.ui.tbl_alumnos.setItem(contador,2,item)
+                item = QTableWidgetItem(str(tlf_tutor))
+                item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+                self.ui.tbl_alumnos.setItem(contador,2,item)
 
-            item = QTableWidgetItem(str(dni_tutor))
-            item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
-            self.ui.tbl_alumnos.setItem(contador,3,item)
+                item = QTableWidgetItem(str(dni_tutor))
+                item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+                self.ui.tbl_alumnos.setItem(contador,3,item)
 
-            contador = contador + 1
+                contador = contador + 1
 
 ################ FUNCIONES COLEGIO PESTAÑA CLASES #######################
  
@@ -224,9 +268,17 @@ class Menu:
             editar = clase.exec()
             if editar == 1:
                 cursoN, letraN = clase.getInputs()
-                ClaseDAO.editarClase(cursoV.text(),letraV.text(),cursoN,letraN)
-                self.setClases()
-                self.setTablaClase() # Para que se muestre la nueva fila editada en la tabla.
+                valor = ClaseDAO.editarClase(cursoV.text(),letraV.text(),cursoN,letraN)
+                if valor == True:
+                    self.setClases()
+                    self.setTablaClase() # Para que se muestre la nueva fila editada en la tabla.
+                else:
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Critical)
+                    msg.setText("Error")
+                    msg.setInformativeText("La clase ya estaba anteriormente introducida en el sistema.")
+                    msg.setWindowTitle("Error")
+                    msg.exec_()
 
     def borrarClase(self):
         row = self.ui.tbl_clases.currentRow()
@@ -240,7 +292,7 @@ class Menu:
             msg.setWindowTitle("Error")
             msg.exec_()
         else:
-            ClaseDAO.borrarClase(curso.text(),letra.text()) # Se borra de la bbdd.
+            ClaseDAO.borrarClase(int(curso.text()),letra.text()) # Se borra de la bbdd.
             self.setClases()
             self.setTablaClase() # Para que se muestre la nueva tabla, con el registro borrado.
 
