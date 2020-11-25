@@ -91,10 +91,17 @@ class WhatsAppController():
     def setDriverConfig(self):
         if self.browser == 'firefox':
             self.options = webdriver.FirefoxOptions()
-            self.driver = webdriver.Firefox(executable_path=self.driver_path)
+            if not self.driver_installed:
+                self.driver = webdriver.Firefox(executable_path=self.driver_path)
+            else:
+                self.driver = webdriver.Firefox()
         elif self.browser == 'chrome':
             self.options = webdriver.ChromeOptions()
-            self.driver = webdriver.Chrome(executable_path=self.driver_path)
+            if not self.driver_installed:
+                self.driver = webdriver.Chrome(executable_path=self.driver_path)
+            else:
+                self.driver = webdriver.Chrome()
+
             self.options.add_argument(r"user-data-dir=./cache") #Guardar cache
 
     def toggleSize(self):
