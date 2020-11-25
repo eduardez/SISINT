@@ -29,6 +29,7 @@ class WhatsAppController():
         self.browser = browser
         self.minimizado = minimizado
         self.driver_path = None
+        self.driver_installed = driver_installed
         self.driver_folder_tokens = RES_PATH
         self.driver = None
         self.exec = None
