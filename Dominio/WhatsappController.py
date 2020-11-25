@@ -16,7 +16,8 @@ path_dict = {
     'chat_input_box': '//*[@id="main"]/footer[1]/div[1]/div[2]/div[1]/div[2]', #Caja input del chat
     'chat_abrir_adjuntar': '//*[@id="main"]/footer[1]/div[1]/div[1]/div[2]/div[1]/div[1]', #Opciones de chat
     'file_input': '//input[@type="file"]', #Path para adjuntar archivo
-    'chat_title_name': '/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[1]/div/span/text()[1]'
+    'chat_title_name': '/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[1]/div/span/text()[1]',
+    'chat_click_button': '/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[3]/button'
 }
 
 # Open WhatsApp URL in chrome browser
@@ -142,10 +143,14 @@ class WhatsAppController():
             return 1
         return 0
 
-    def sendMsg(self, text):
+    def sendMsg(self, text, isEnvioActivo):
         '''Introducir texto en el chat'''
         text_box = self.searchElement('chat_input_box')
         text_box.send_keys(text)
+        btn_click = self.searchElement('chat_click_button')
+        if isEnvioActivo:
+            ActionChains(self.driver).click(btn_click).perform()
+
 
     def adjuntarArchivo(self, path=None):
         abrir_adjuntar_span = self.searchElement('chat_abrir_adjuntar')

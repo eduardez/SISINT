@@ -24,8 +24,9 @@ class DebugFrame():
     def enviarMensaje(self):
         numero = self.ui.input_numero_envio.text()
         mensaje = self.ui.input_mensaje_envio.text()
+        isEnvioActivado = self.ui.is_envio_activado.isChecked()
         self.wp_instance.searchAndClick(numero)
-        self.wp_instance.sendMsg(mensaje)
+        self.wp_instance.sendMsg(mensaje, isEnvioActivado)
 
     def buscarUser(self):
         numero = self.ui.input_buscar_contacto.text()
