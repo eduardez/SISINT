@@ -1,6 +1,7 @@
 import os
 import sys
 import webbrowser
+import datetime ##### Fecha de hoy ----> today = datetime.date.today()
 
 from PyQt5 import QtGui,QtCore
 from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QDialogButtonBox, QFormLayout, QComboBox
@@ -16,9 +17,9 @@ from Persistencia import ClaseDAO, AlumnoDAO
 class Menu:
     def __init__(self, WPController = None):
         super(Menu, self).__init__()
-        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui"))
+        #self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui"))
         ### PARA WINDOWS (SEVILLA)
-        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_menu.ui"))
+        self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu.ui"))
         self.wp_controller = WPController
         self.iniciarDB()
         self.setActions()
@@ -97,6 +98,7 @@ class Menu:
 ################ FUNCIONES ENVIAR MENSAJE ###############################
 
     def setGruposEnviarMensajes(self):
+        self.ui.cb_grupo.clear()
         items = ClaseDAO.getClases()
         clases = []
         for i in items:
@@ -122,6 +124,11 @@ class Menu:
                 telefonos.append(i.getTelefono())
             print(telefonos)
             #return telefonos
+
+        ####### Meter el mensaje en la tabla del historial de mensajes #######
+        today = datetime.date.today()
+        fecha = today.strftime("%b %d %Y")
+        print(fecha)
 
 ################ FUNCIONES COLEGIO PESTAÑA ALUMNO #######################
     
