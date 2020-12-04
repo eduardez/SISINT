@@ -13,7 +13,7 @@ class DebugFrame():
         super(DebugFrame, self).__init__()
         self.ui = QUiLoader().load(QFile("./Presentacion/UI_Files/UI_Pruebas.ui"))
         ###Para windows (SEVILLA)
-        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_Pruebas.ui"))
+        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_Pruebas.ui"))
         self.wp_instance = wp_instance
         self.setActions()
 
@@ -21,11 +21,12 @@ class DebugFrame():
         self.ui.btn_enviar_msg.clicked.connect(self.enviarMensaje)
         self.ui.btn_buscar_contacto.clicked.connect(self.buscarUser)
 
-    def abrirPagina(self):
-        self.wp_instance.startConnection()
-
     def enviarMensaje(self):
-        pass
+        numero = self.ui.input_numero_envio.text()
+        mensaje = self.ui.input_mensaje_envio.text()
+        isEnvioActivado = self.ui.is_envio_activado.isChecked()
+        self.wp_instance.searchAndClick(numero)
+        self.wp_instance.sendMsg(mensaje, isEnvioActivado)
 
     def buscarUser(self):
         numero = self.ui.input_buscar_contacto.text()

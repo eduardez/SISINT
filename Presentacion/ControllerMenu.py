@@ -17,9 +17,9 @@ from Persistencia import ClaseDAO, AlumnoDAO
 class Menu:
     def __init__(self, WPController = None):
         super(Menu, self).__init__()
-        #self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui"))
+        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui2"))
         ### PARA WINDOWS (SEVILLA)
-        self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu.ui"))
+        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu2.ui"))
         self.wp_controller = WPController
         self.iniciarDB()
         self.setActions()
@@ -58,12 +58,14 @@ class Menu:
         self.ui.stackedWidget.setCurrentIndex(3)
 
     def enviarmsg(self):
-        self.setMiembrosEnviarMensajes()
+        #self.setMiembrosEnviarMensajes()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.btn_forms.clicked.connect(self.crear_googleforms)
         self.setGruposEnviarMensajes()
-        self.ui.cb_grupo.currentTextChanged.connect(self.setMiembrosEnviarMensajes)
+        #self.ui.cb_grupo.currentTextChanged.connect(self.setMiembrosEnviarMensajes)
         self.ui.btn_masivo.clicked.connect(self.enviarMensaje)
+        self.ui.btn_addcola.clicked.connect(self.añadirCola)
+        self.ui.btn_remcola.clicked.connect(self.borrarCola)
 
 
     def crear_googleforms(self):
@@ -105,16 +107,28 @@ class Menu:
             clases.append(i.__str__())
         self.ui.cb_grupo.addItems(clases)
 
-    def setMiembrosEnviarMensajes(self):
-        self.ui.cb_miembro.clear()
-        clase_actual = self.ui.cb_grupo.currentText()
-        if clase_actual != "":
-            items = AlumnoDAO.getAlumnoPorClase(clase_actual)
-            alumnos = []
-            for i in items:
-                alumnos.append(i.getNombreAlumno())
-            self.ui.cb_miembro.addItems(alumnos)
-    
+    def añadirCola(self):
+        numRows = self.ui.tbl_cola.rowCount()
+        self.ui.tbl_cola.insertRow(numRows)
+        grupo = self.ui.cb_grupo.currentText()
+
+        #encontrado = False
+        #contador = 0
+        #for i in range(0,numRows):
+        #    elemento = self.ui.tbl_cola.item(contador,0).text()
+        #    if elemento == grupo:
+        #        encontrado = True
+        #        print('YA ESTABA.')
+
+        #if encontrado is False:
+        item = QTableWidgetItem(grupo)
+        item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+        self.ui.tbl_cola.setItem(numRows,0,item)
+
+    def borrarCola(self):
+        row = self.ui.tbl_cola.currentRow()
+        self.ui.tbl_cola.removeRow(row)
+
     def enviarMensaje(self): # Este método devuelve de momento todos los telefonos de la clase escogida
         clase_actual = self.ui.cb_grupo.currentText()
         if clase_actual != "":
