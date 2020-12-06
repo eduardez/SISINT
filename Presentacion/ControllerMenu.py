@@ -5,7 +5,7 @@ import datetime ##### Fecha de hoy ----> today = datetime.date.today()
 
 from PyQt5 import QtGui,QtCore
 from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QDialogButtonBox, QFormLayout, QComboBox
-from PySide2.QtWidgets import QHeaderView, QTableWidgetItem, QMessageBox
+from PySide2.QtWidgets import QHeaderView, QTableWidgetItem, QMessageBox, QFrame, QTreeWidgetItem, QCheckBox
 from PySide2.QtCore import QFile, Qt
 from PySide2.QtUiTools import QUiLoader
 from Presentacion.UI_Files.Resources import icons
@@ -17,7 +17,7 @@ from Persistencia import ClaseDAO, AlumnoDAO
 class Menu:
     def __init__(self, WPController = None):
         super(Menu, self).__init__()
-        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu.ui2"))
+        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu2.ui"))
         ### PARA WINDOWS (SEVILLA)
         #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu2.ui"))
         self.wp_controller = WPController
@@ -32,6 +32,25 @@ class Menu:
         # Método para eliminar toda la base de datos
         #ClaseDAO.eliminarBD()
         self.setTablaAlumno()
+        
+        parent = QTreeWidgetItem(self.ui.treeGrupos)
+        parent.setText(0,"1º")
+        parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
+        dict_borrable = {1:'A',2:'B',3:'C',4:'D',5:'E'}
+        for x in range(1,6):
+            child = QTreeWidgetItem(parent)
+            child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
+            child.setText(0,"1{}".format(str(dict_borrable[x])))
+            child.setCheckState(0,Qt.Unchecked)
+
+        """my_item_root = QTreeWidgetItem(self.ui.treeGrupos, ['1º'])
+        cbox = QCheckBox()
+        cbox.setText("1A")
+        my_item_raw = QTreeWidgetItem(my_item_root,[cbox])"""
+        """item = QTreeWidgetItem(["1º"])
+        self.ui.treeGrupos.addTopLevelItem(item)
+        widget = QRadioButton()
+        self.ui.treeGrupos.setItemWidget(item,0,widget)"""
 
     def _exec(self):
         self.ui.show()

@@ -213,7 +213,7 @@ QLineEdit
      <enum>Qt::AutoText</enum>
     </property>
     <property name="pixmap">
-     <pixmap resource="Resources/icons.qrc">:/icons/whatsapp logo.png</pixmap>
+     <pixmap resource="Resources/icons.qrc">:/icons/danger.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -238,7 +238,7 @@ QLineEdit
      <enum>Qt::AutoText</enum>
     </property>
     <property name="pixmap">
-     <pixmap resource="Resources/icons.qrc">:/icons/whatsapp logo.png</pixmap>
+     <pixmap resource="Resources/icons.qrc">:/icons/danger.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

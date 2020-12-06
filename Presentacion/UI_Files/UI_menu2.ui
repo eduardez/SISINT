@@ -49,7 +49,7 @@ background:#333;
           <string notr="true"/>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -103,7 +103,7 @@ border-radius:40px;
        <item>
         <widget class="QFrame" name="iz1_2">
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -162,7 +162,7 @@ border-radius:7px;
        <item>
         <widget class="QFrame" name="iz3">
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -227,7 +227,7 @@ border-radius:8px;
        <item>
         <widget class="QFrame" name="iz2">
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -456,7 +456,56 @@ font: 75 8pt &quot;Century-gothic&quot;;
            </property>
            <item>
             <layout class="QGridLayout" name="seleccion_grupos">
-             <item row="1" column="1">
+             <item row="1" column="3" rowspan="4">
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="3" column="5">
+              <widget class="QPushButton" name="btn_addcola">
+               <property name="text">
+                <string>AÑADIR A LA COLA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="5">
+              <widget class="QComboBox" name="cb_grupo"/>
+             </item>
+             <item row="1" column="5">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>SELECCION DE GRUPOS</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="5">
+              <widget class="QPushButton" name="btn_remcola">
+               <property name="text">
+                <string>ELIMINAR DE LA COLA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2" rowspan="4">
+              <widget class="QTableWidget" name="tbl_cola">
+               <property name="editTriggers">
+                <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+               </property>
+               <column>
+                <property name="text">
+                 <string>COLA</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item row="1" column="1" rowspan="4">
               <spacer name="spacer_quitar">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -469,44 +518,20 @@ font: 75 8pt &quot;Century-gothic&quot;;
                </property>
               </spacer>
              </item>
-             <item row="1" column="3">
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>SELECCION DE GRUPOS</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="3">
-              <widget class="QPushButton" name="btn_addcola">
-               <property name="text">
-                <string>AÑADIR A LA COLA</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="3">
-              <widget class="QComboBox" name="cb_grupo"/>
-             </item>
-             <item row="4" column="3">
-              <widget class="QPushButton" name="btn_remcola">
-               <property name="text">
-                <string>ELIMINAR DE LA COLA</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2" rowspan="4">
-              <widget class="QTableWidget" name="tbl_cola">
-               <column>
-                <property name="text">
-                 <string>COLA</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="1" column="0" rowspan="6">
+             <item row="1" column="0" rowspan="7">
               <widget class="QLabel" name="logo">
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿FUTURO LOGO?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
+              </widget>
+             </item>
+             <item row="1" column="4" rowspan="4">
+              <widget class="QTreeWidget" name="treeGrupos">
+               <column>
+                <property name="text">
+                 <string notr="true">1</string>
+                </property>
+               </column>
               </widget>
              </item>
             </layout>
@@ -1103,7 +1128,7 @@ border-radius:8px;
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="alumnos">
                  <attribute name="title">
@@ -1353,12 +1378,6 @@ border-radius:8px;
                  <layout class="QVBoxLayout" name="verticalLayout_11">
                   <item>
                    <widget class="QFrame" name="frame_5">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout">
                      <item>
                       <spacer name="horizontalSpacer_4">
