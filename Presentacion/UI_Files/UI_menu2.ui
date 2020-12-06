@@ -455,8 +455,32 @@ font: 75 8pt &quot;Century-gothic&quot;;
             <number>13</number>
            </property>
            <item>
-            <layout class="QGridLayout" name="seleccion_grupos">
-             <item row="1" column="3" rowspan="4">
+            <layout class="QGridLayout" name="seleccion_grupos" rowstretch="0,0,0,0,0" columnstretch="50,0,0,0,0,0,0">
+             <item row="2" column="6">
+              <widget class="QComboBox" name="cb_grupo"/>
+             </item>
+             <item row="3" column="6">
+              <widget class="QPushButton" name="btn_addcola">
+               <property name="text">
+                <string>AÑADIR A LA COLA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="lbl_n_alumnos">
+               <property name="text">
+                <string>Número de alumnos:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="txt_n_clases">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="5" rowspan="4">
               <spacer name="horizontalSpacer_5">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -469,32 +493,25 @@ font: 75 8pt &quot;Century-gothic&quot;;
                </property>
               </spacer>
              </item>
-             <item row="3" column="5">
-              <widget class="QPushButton" name="btn_addcola">
+             <item row="3" column="0">
+              <widget class="QLabel" name="txt_n_grupos">
                <property name="text">
-                <string>AÑADIR A LA COLA</string>
+                <string>0</string>
                </property>
               </widget>
              </item>
-             <item row="2" column="5">
-              <widget class="QComboBox" name="cb_grupo"/>
-             </item>
-             <item row="1" column="5">
+             <item row="1" column="6">
               <widget class="QLabel" name="label_8">
                <property name="text">
                 <string>SELECCION DE GRUPOS</string>
                </property>
               </widget>
              </item>
-             <item row="4" column="5">
-              <widget class="QPushButton" name="btn_remcola">
-               <property name="text">
-                <string>ELIMINAR DE LA COLA</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2" rowspan="4">
+             <item row="1" column="3" rowspan="4">
               <widget class="QTableWidget" name="tbl_cola">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
                <property name="editTriggers">
                 <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
                </property>
@@ -505,8 +522,36 @@ font: 75 8pt &quot;Century-gothic&quot;;
                </column>
               </widget>
              </item>
-             <item row="1" column="1" rowspan="4">
-              <spacer name="spacer_quitar">
+             <item row="2" column="0">
+              <widget class="QLabel" name="txt_n_alumnos">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="Info_mensaje">
+               <property name="text">
+                <string>Información del mensaje</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="lbl_n_grupos">
+               <property name="text">
+                <string>Número de grupos: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="6">
+              <widget class="QPushButton" name="btn_remcola">
+               <property name="text">
+                <string>ELIMINAR DE LA COLA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2" rowspan="4">
+              <spacer name="horizontalSpacer_6">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -518,20 +563,26 @@ font: 75 8pt &quot;Century-gothic&quot;;
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" rowspan="7">
-              <widget class="QLabel" name="logo">
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿FUTURO LOGO?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
              <item row="1" column="4" rowspan="4">
               <widget class="QTreeWidget" name="treeGrupos">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="columnCount">
+                <number>1</number>
+               </property>
                <column>
                 <property name="text">
-                 <string notr="true">1</string>
+                 <string>GRUPOS</string>
                 </property>
                </column>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLabel" name="lbl_n_clases">
+               <property name="text">
+                <string>Número de clases:</string>
+               </property>
               </widget>
              </item>
             </layout>
@@ -1128,7 +1179,7 @@ border-radius:8px;
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="alumnos">
                  <attribute name="title">

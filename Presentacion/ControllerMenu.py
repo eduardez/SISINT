@@ -32,25 +32,7 @@ class Menu:
         # Método para eliminar toda la base de datos
         #ClaseDAO.eliminarBD()
         self.setTablaAlumno()
-        
-        parent = QTreeWidgetItem(self.ui.treeGrupos)
-        parent.setText(0,"1º")
-        parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
-        dict_borrable = {1:'A',2:'B',3:'C',4:'D',5:'E'}
-        for x in range(1,6):
-            child = QTreeWidgetItem(parent)
-            child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
-            child.setText(0,"1{}".format(str(dict_borrable[x])))
-            child.setCheckState(0,Qt.Unchecked)
-
-        """my_item_root = QTreeWidgetItem(self.ui.treeGrupos, ['1º'])
-        cbox = QCheckBox()
-        cbox.setText("1A")
-        my_item_raw = QTreeWidgetItem(my_item_root,[cbox])"""
-        """item = QTreeWidgetItem(["1º"])
-        self.ui.treeGrupos.addTopLevelItem(item)
-        widget = QRadioButton()
-        self.ui.treeGrupos.setItemWidget(item,0,widget)"""
+        self.setTreeGrupos()
 
     def _exec(self):
         self.ui.show()
@@ -118,6 +100,37 @@ class Menu:
 
 ################ FUNCIONES ENVIAR MENSAJE ###############################
 
+    def setTreeGrupos(self):
+        items = ClaseDAO.getClases()
+        clases = []
+        for i in items:
+            clases.append(i.__str__())
+        grupos = {}
+
+        grupo = clases[0][0]
+        clases_grupo = []
+        for i in clases:
+            if i[0] != grupo and grupo != "":
+                grupos[grupo] = clases_grupo
+            #if i[0] not in grupos:
+                clases_grupo = []
+                grupo = i[0]
+                clases_grupo.append(i)
+            else:
+                clases_grupo.append(i)
+        grupos[grupo] = clases_grupo
+        
+        for grupo,clases in grupos.items():
+            parent = QTreeWidgetItem(self.ui.treeGrupos)
+            parent.setText(0,grupo)
+            parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
+            
+            for x in clases:
+                child = QTreeWidgetItem(parent)
+                child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
+                child.setText(0,"{0}".format(x))
+                child.setCheckState(0,Qt.Unchecked)
+
     def setGruposEnviarMensajes(self):
         self.ui.cb_grupo.clear()
         items = ClaseDAO.getClases()
@@ -129,7 +142,15 @@ class Menu:
     def añadirCola(self):
         numRows = self.ui.tbl_cola.rowCount()
         self.ui.tbl_cola.insertRow(numRows)
-        grupo = self.ui.cb_grupo.currentText()
+        #grupo = self.ui.cb_grupo.currentText()
+        #for i in self.ui.treeGrupos.items():
+        #   print(self.ui.treeGrupos.item(i))
+        print(self.ui.treeGrupos.topLevelItemCount())
+        item = self.ui.treeGrupos.topLevelItem(0)
+        print(item.child(0).text(0))
+        child = (QCheckBox) item.child(0)
+        print(child.isChecked())
+        #print(((QCheckBox)item.child(0)).isChecked())
 
         #encontrado = False
         #contador = 0
@@ -140,9 +161,10 @@ class Menu:
         #        print('YA ESTABA.')
 
         #if encontrado is False:
-        item = QTableWidgetItem(grupo)
-        item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
-        self.ui.tbl_cola.setItem(numRows,0,item)
+
+        #item = QTableWidgetItem(grupo)
+        #item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+        #self.ui.tbl_cola.setItem(numRows,0,item)
 
     def borrarCola(self):
         row = self.ui.tbl_cola.currentRow()
@@ -354,6 +376,7 @@ class Menu:
             
             curso = i.getClase()
             clase = i.getLetra()
+            num_alumnos = len(AlumnoDAO.getAlumnoPorClase(str(curso)+clase))
 
             item = QTableWidgetItem(str(curso))
             item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
@@ -362,6 +385,10 @@ class Menu:
             item = QTableWidgetItem(clase)
             item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
             self.ui.tbl_clases.setItem(contador,1,item)
+
+            item = QTableWidgetItem(str(num_alumnos))
+            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+            self.ui.tbl_clases.setItem(contador,2,item)
 
             contador = contador + 1
     
