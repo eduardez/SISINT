@@ -444,7 +444,7 @@ font: 75 8pt &quot;Century-gothic&quot;;
           <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="sw_enviar">
           <property name="layoutDirection">
@@ -857,7 +857,7 @@ font: 75 8pt &quot;Century-gothic&quot;;
             </widget>
            </item>
            <item>
-            <widget class="QPlainTextEdit" name="le_cuerpo">
+            <widget class="QTextEdit" name="le_cuerpo">
              <property name="styleSheet">
               <string notr="true">background:white;
 font: 12pt &quot;century-gothic&quot;;
@@ -961,67 +961,7 @@ border-radius:8px;
                <enum>QLayout::SetMinimumSize</enum>
               </property>
               <item>
-               <widget class="QTableWidget" name="tableWidget">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                  <horstretch>1</horstretch>
-                  <verstretch>1</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>200</height>
-                 </size>
-                </property>
-                <attribute name="horizontalHeaderVisible">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="horizontalHeaderCascadingSectionResizes">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="horizontalHeaderDefaultSectionSize">
-                 <number>106</number>
-                </attribute>
-                <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="horizontalHeaderStretchLastSection">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="verticalHeaderVisible">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="verticalHeaderCascadingSectionResizes">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="verticalHeaderMinimumSectionSize">
-                 <number>18</number>
-                </attribute>
-                <attribute name="verticalHeaderDefaultSectionSize">
-                 <number>32</number>
-                </attribute>
-                <attribute name="verticalHeaderHighlightSections">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="verticalHeaderStretchLastSection">
-                 <bool>false</bool>
-                </attribute>
-                <row>
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>2</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>3</string>
-                 </property>
-                </row>
+               <widget class="QTableWidget" name="tbl_historial">
                 <column>
                  <property name="text">
                   <string>FECHA</string>
@@ -1029,7 +969,7 @@ border-radius:8px;
                 </column>
                 <column>
                  <property name="text">
-                  <string>TITULO</string>
+                  <string>TÍTULO</string>
                  </property>
                 </column>
                 <column>
@@ -1047,66 +987,6 @@ border-radius:8px;
                   <string>GRUPOS</string>
                  </property>
                 </column>
-                <item row="0" column="0">
-                 <property name="text">
-                  <string>12/10/2020</string>
-                 </property>
-                </item>
-                <item row="0" column="1">
-                 <property name="text">
-                  <string>Examen Lengua</string>
-                 </property>
-                </item>
-                <item row="0" column="3">
-                 <property name="text">
-                  <string>Los alumnos tendrán un examen el próximo Lunes de Lengua</string>
-                 </property>
-                </item>
-                <item row="0" column="4">
-                 <property name="text">
-                  <string>6B</string>
-                 </property>
-                </item>
-                <item row="1" column="0">
-                 <property name="text">
-                  <string>14/10/2020</string>
-                 </property>
-                </item>
-                <item row="1" column="1">
-                 <property name="text">
-                  <string>Autorización</string>
-                 </property>
-                </item>
-                <item row="1" column="3">
-                 <property name="text">
-                  <string>Los alumnos que quieran asistir al teatro el proximo miercoles deberan entregar la autorización</string>
-                 </property>
-                </item>
-                <item row="1" column="4">
-                 <property name="text">
-                  <string>5A</string>
-                 </property>
-                </item>
-                <item row="2" column="0">
-                 <property name="text">
-                  <string>19/10/2020</string>
-                 </property>
-                </item>
-                <item row="2" column="1">
-                 <property name="text">
-                  <string>Calificaciones Examen Lengua</string>
-                 </property>
-                </item>
-                <item row="2" column="3">
-                 <property name="text">
-                  <string>Cada alumno ha recibido hoy su calificación del examen realizado esta semana.</string>
-                 </property>
-                </item>
-                <item row="2" column="4">
-                 <property name="text">
-                  <string>6B</string>
-                 </property>
-                </item>
                </widget>
               </item>
               <item>
@@ -1179,7 +1059,7 @@ border-radius:8px;
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="alumnos">
                  <attribute name="title">

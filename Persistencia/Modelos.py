@@ -72,5 +72,5 @@ class Mensaje(DB.Base):
         return self.grupos
     
     def __str__(self):
-        return "Fecha: " + str(self.date) + ", Titulo: " + self.titulo + ", Asunto: " + self.asunto + ", Grupos: " + self.grupos
+        return "Fecha: " + str(self.fecha) + ", Titulo: " + str(self.titulo) + ", Asunto: " + str(self.asunto) + ", Grupos: " + self.grupos
 

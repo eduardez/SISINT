@@ -4,22 +4,22 @@ import webbrowser
 import datetime ##### Fecha de hoy ----> today = datetime.date.today()
 
 from PyQt5 import QtGui,QtCore
-from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QDialogButtonBox, QFormLayout, QComboBox
-from PySide2.QtWidgets import QHeaderView, QTableWidgetItem, QMessageBox, QFrame, QTreeWidgetItem, QCheckBox
-from PySide2.QtCore import QFile, Qt
+from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QDialogButtonBox, QFormLayout, QComboBox, QFileDialog
+from PySide2.QtWidgets import QHeaderView, QTableWidgetItem, QMessageBox, QFrame, QTreeWidgetItem, QCheckBox, QFileDialog
+from PySide2.QtCore import QFile, Qt, QDir
 from PySide2.QtUiTools import QUiLoader
 from Presentacion.UI_Files.Resources import icons
 
 from Presentacion import ControllerDebug,ControllerLogin
-from Persistencia import ClaseDAO, AlumnoDAO
+from Persistencia import ClaseDAO, AlumnoDAO, MensajeDAO
 
 
 class Menu:
     def __init__(self, WPController = None):
         super(Menu, self).__init__()
-        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu2.ui"))
+        #self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu2.ui"))
         ### PARA WINDOWS (SEVILLA)
-        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu2.ui"))
+        self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu2.ui"))
         self.wp_controller = WPController
         self.iniciarDB()
         self.setActions()
@@ -50,7 +50,7 @@ class Menu:
         
 
     def adjustTables(self):
-        tablas = [self.ui.tableWidget, self.ui.tbl_alumnos, self.ui.tbl_clases]
+        tablas = [self.ui.tbl_historial, self.ui.tbl_alumnos, self.ui.tbl_clases]
         for tbl in tablas:
             tbl.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
             tbl.verticalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -67,17 +67,19 @@ class Menu:
         self.ui.btn_masivo.clicked.connect(self.enviarMensaje)
         self.ui.btn_addcola.clicked.connect(self.añadirCola)
         self.ui.btn_remcola.clicked.connect(self.borrarCola)
-
+        #### Botones carga de archivos en mensaje
+        self.ui.btn_camara.clicked.connect(self.cargarFoto)
 
     def crear_googleforms(self):
-        webbrowser.open('https://www.google.com/intl/es_es/forms/about/') # no se que es webbrowser y por eso no va el boton
+        webbrowser.open('https://www.google.com/intl/es_es/forms/about/') 
 
     def mensajes(self):
         self.ui.stackedWidget.setCurrentIndex(1)
+        self.cargarMensajesHistorial()
         self.ui.pushButton.clicked.connect(self.ver_googleforms)
 
     def ver_googleforms(self):
-        webbrowser.open('https://www.google.com/intl/es_es/forms/about/') # no se que es webbrowser y por eso no va el boton
+        webbrowser.open('https://www.google.com/intl/es_es/forms/about/')
 
     def colegio(self):
         self.ui.stackedWidget.setCurrentIndex(2)
@@ -148,8 +150,8 @@ class Menu:
         print(self.ui.treeGrupos.topLevelItemCount())
         item = self.ui.treeGrupos.topLevelItem(0)
         print(item.child(0).text(0))
-        child = (QCheckBox) item.child(0)
-        print(child.isChecked())
+        #child = (QCheckBox) item.child(0) ############################# esto lo he comentado porque si no no me tira :(
+        #print(child.isChecked())
         #print(((QCheckBox)item.child(0)).isChecked())
 
         #encontrado = False
@@ -170,6 +172,12 @@ class Menu:
         row = self.ui.tbl_cola.currentRow()
         self.ui.tbl_cola.removeRow(row)
 
+    def cargarFoto(self):
+        file = QFileDialog.getOpenFileName(self, 'Open file', 'c:\\',"Image files (*.jpg *.gif)")
+        #file = QFileDialog.getOpenFileName(self, "Open Image", "C:\\", "Images (*.png *.xpm *.jpg)") NO SE PORQUE NO VA.
+        if file:
+            print("Archivo seleccionado: ", file)
+
     def enviarMensaje(self): # Este método devuelve de momento todos los telefonos de la clase escogida
         clase_actual = self.ui.cb_grupo.currentText()
         if clase_actual != "":
@@ -183,7 +191,58 @@ class Menu:
         ####### Meter el mensaje en la tabla del historial de mensajes #######
         today = datetime.date.today()
         fecha = today.strftime("%b %d %Y")
-        print(fecha)
+        titulo = self.ui.le_titulo.text()
+        asunto = self.ui.le_asunto.text()
+        cuerpo = self.ui.le_cuerpo.toPlainText()
+
+        if titulo == "" or asunto == "" or cuerpo == "":
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Algún campo está vacío.")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        else: #### EN ESTE ELSE ES DONDE HAY QUE METER QUE SE INICIE EL ENVÍO MASIVO.
+            MensajeDAO.añadirMensaje(fecha,titulo,asunto,cuerpo,"6B") ######## CUANDO SE SEPA COMO VER LOS GRUPOS, METERLO.
+            self.ui.le_titulo.clear()
+            self.ui.le_asunto.clear()
+            self.ui.le_cuerpo.clear()
+
+
+################ FUNCIONES COLEGIO PESTAÑA HISTORIAL #######################
+    def cargarMensajesHistorial(self):
+        self.borrarTabla(self.ui.tbl_historial)
+        items = MensajeDAO.getMensajes()
+        contador = 0
+        for i in items:
+            self.ui.tbl_historial.insertRow(contador)
+            fecha = i.getFecha()
+            titulo = i.getTitulo()
+            asunto = i.getAsunto()
+            cuerpo = i.getCuerpo()
+            grupos = i.getGrupos()
+
+            item = QTableWidgetItem(fecha)
+            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+            self.ui.tbl_historial.setItem(contador,0,item)
+
+            item = QTableWidgetItem(titulo)
+            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+            self.ui.tbl_historial.setItem(contador,1,item)
+
+            item = QTableWidgetItem(asunto)
+            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+            self.ui.tbl_historial.setItem(contador,2,item)
+
+            item = QTableWidgetItem(cuerpo)
+            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+            self.ui.tbl_historial.setItem(contador,3,item)
+
+            item = QTableWidgetItem(grupos)
+            item.setFlags( Qt.ItemIsSelectable |  Qt.ItemIsEnabled )
+            self.ui.tbl_historial.setItem(contador,4,item)
+
+            contador = contador + 1
 
 ################ FUNCIONES COLEGIO PESTAÑA ALUMNO #######################
     
@@ -199,7 +258,7 @@ class Menu:
         if añadir == 1:
             nombre_alu, nombre_tut, tlf, dni, clase = alumno.getInputs()
             clase_alumno = ClaseDAO.buscarClase(clase)
-            for i in clase_alumno: #PONERLO MÁS ELEGANTE
+            for i in clase_alumno:
                 c_alumno = i
             valor = AlumnoDAO.añadirAlumno(nombre_alu,nombre_tut,tlf,dni,c_alumno)
             if valor == True:
@@ -238,7 +297,7 @@ class Menu:
             if editar == 1:
                 nombre_alu, nombre_tut, tlf, dni, clase = alumno.getInputs()
                 clase_alumno = ClaseDAO.buscarClase(clase)
-                for i in clase_alumno: #PONERLO MÁS ELEGANTE
+                for i in clase_alumno:
                     c_alumno = i
                 AlumnoDAO.editarAlumno(tutor_v.text(),dni_v.text(),nombre_alu,nombre_tut,tlf,dni,c_alumno)
                 self.setTablaAlumno()

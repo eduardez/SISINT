@@ -7,4 +7,7 @@ def añadirMensaje(fecha_msj,titulo_msj,asunto_msj,cuerpo_msj,grupos_msj):
     DB.session.add(mensaje_añadido)  
     DB.session.commit() 
 
+def getMensajes():
+    consultaMensaje = DB.session.query(Mensaje).order_by(Mensaje.id.desc())
+    return consultaMensaje
 
