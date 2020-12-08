@@ -15,11 +15,13 @@ from Persistencia import ClaseDAO, AlumnoDAO, MensajeDAO
 
 
 class Menu:
+    GRUPOS = []
+    GRUPOS_SELECCIONADOS = []
     def __init__(self, WPController = None):
         super(Menu, self).__init__()
-        #self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu2.ui"))
+        self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_menu2.ui"))
         ### PARA WINDOWS (SEVILLA)
-        self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu2.ui"))
+        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_menu2.ui"))
         self.wp_controller = WPController
         self.iniciarDB()
         self.setActions()
@@ -33,6 +35,9 @@ class Menu:
         #ClaseDAO.eliminarBD()
         self.setTablaAlumno()
         self.setTreeGrupos()
+        self.setActionsMSG()
+        self.setActionsMensajes()
+        self.setActionsColegio()
 
     def _exec(self):
         self.ui.show()
@@ -47,6 +52,32 @@ class Menu:
         self.ui.btn_colegios.clicked.connect(self.colegio)
         self.ui.btn_settings.clicked.connect(self.openDebugSettings)
         self.ui.btn_salir.clicked.connect(self.salirApp)
+
+    def setActionsMSG(self):
+        self.ui.btn_forms.clicked.connect(self.crear_googleforms)
+        self.setGruposEnviarMensajes()
+        #self.ui.cb_grupo.currentTextChanged.connect(self.setMiembrosEnviarMensajes)
+        self.ui.btn_masivo.clicked.connect(self.enviarMensaje)
+        #self.ui.btn_addcola.clicked.connect(self.añadirCola)
+        #self.ui.btn_remcola.clicked.connect(self.borrarCola)
+        #### Botones carga de archivos en mensaje
+        self.ui.btn_camara.clicked.connect(self.cargarFoto)
+        self.ui.treeGrupos.itemChanged.connect(self.cambioTree)
+    
+    def setActionsMensajes(self):
+        self.cargarMensajesHistorial()
+        self.ui.pushButton.clicked.connect(self.ver_googleforms)
+    
+    def setActionsColegio(self):
+        ####### BOTONES PESTAÑA ALUMNO #######
+        self.ui.btn_addalu.clicked.connect(self.añadirAlumno)
+        self.ui.btn_editalu.clicked.connect(self.editarAlumno)
+        self.ui.btn_borraralu.clicked.connect(self.borrarAlumno)
+        self.ui.cb_selgrupo.currentTextChanged.connect(self.setTablaAlumno)
+        ####### BOTONES PESTAÑA CLASES #######
+        self.ui.btn_addclase.clicked.connect(self.añadirClase)
+        self.ui.btn_editclase.clicked.connect(self.editarClase)
+        self.ui.btn_borrarclase.clicked.connect(self.borrarClase)
         
 
     def adjustTables(self):
@@ -61,37 +92,19 @@ class Menu:
     def enviarmsg(self):
         #self.setMiembrosEnviarMensajes()
         self.ui.stackedWidget.setCurrentIndex(0)
-        self.ui.btn_forms.clicked.connect(self.crear_googleforms)
-        self.setGruposEnviarMensajes()
-        #self.ui.cb_grupo.currentTextChanged.connect(self.setMiembrosEnviarMensajes)
-        self.ui.btn_masivo.clicked.connect(self.enviarMensaje)
-        self.ui.btn_addcola.clicked.connect(self.añadirCola)
-        self.ui.btn_remcola.clicked.connect(self.borrarCola)
-        #### Botones carga de archivos en mensaje
-        self.ui.btn_camara.clicked.connect(self.cargarFoto)
+        
 
     def crear_googleforms(self):
         webbrowser.open('https://www.google.com/intl/es_es/forms/about/') 
 
     def mensajes(self):
         self.ui.stackedWidget.setCurrentIndex(1)
-        self.cargarMensajesHistorial()
-        self.ui.pushButton.clicked.connect(self.ver_googleforms)
 
     def ver_googleforms(self):
         webbrowser.open('https://www.google.com/intl/es_es/forms/about/')
 
     def colegio(self):
         self.ui.stackedWidget.setCurrentIndex(2)
-        ####### BOTONES PESTAÑA ALUMNO #######
-        self.ui.btn_addalu.clicked.connect(self.añadirAlumno)
-        self.ui.btn_editalu.clicked.connect(self.editarAlumno)
-        self.ui.btn_borraralu.clicked.connect(self.borrarAlumno)
-        self.ui.cb_selgrupo.currentTextChanged.connect(self.setTablaAlumno)
-        ####### BOTONES PESTAÑA CLASES #######
-        self.ui.btn_addclase.clicked.connect(self.añadirClase)
-        self.ui.btn_editclase.clicked.connect(self.editarClase)
-        self.ui.btn_borrarclase.clicked.connect(self.borrarClase)
         
     def salirApp(self):
         self.ui.close()
@@ -102,7 +115,16 @@ class Menu:
 
 ################ FUNCIONES ENVIAR MENSAJE ###############################
 
+    def setGrupos(self):
+        self.GRUPOS = []
+        numGrupos = self.ui.treeGrupos.topLevelItemCount()
+        for i in range(0,numGrupos):
+            self.GRUPOS.append(self.ui.treeGrupos.topLevelItem(i))
+        print(self.GRUPOS)
+
     def setTreeGrupos(self):
+        self.ui.treeGrupos.blockSignals(True)
+        self.ui.treeGrupos.clear()
         items = ClaseDAO.getClases()
         clases = []
         for i in items:
@@ -132,24 +154,72 @@ class Menu:
                 child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
                 child.setText(0,"{0}".format(x))
                 child.setCheckState(0,Qt.Unchecked)
+        self.ui.treeGrupos.blockSignals(False)
+        self.setGrupos()
 
     def setGruposEnviarMensajes(self):
-        self.ui.cb_grupo.clear()
+        #self.ui.cb_grupo.clear() modificar
         items = ClaseDAO.getClases()
         clases = []
         for i in items:
             clases.append(i.__str__())
-        self.ui.cb_grupo.addItems(clases)
+        #self.ui.cb_grupo.addItems(clases)
+    
+    def cambioTree(self,item,column):
+        if item.checkState(column) == QtCore.Qt.Checked:
+            print('{}: Item Checked'.format(item.text(0)))
+            if item not in self.GRUPOS:
+                if item.parent() not in self.GRUPOS_SELECCIONADOS:
+                    self.GRUPOS_SELECCIONADOS.append(item.parent())
+                    self.ui.txt_n_grupos.setText(str(len(self.GRUPOS_SELECCIONADOS)))
+                numero = int(self.ui.txt_n_clases.text())
+                numero += 1
+                self.ui.txt_n_clases.setText(str(numero))
+                num_alumnos = int(self.ui.txt_n_alumnos.text())
+                curso = item.text(0)[0]
+                clase = item.text(0)[1]
+                num_alumnos += len(AlumnoDAO.getAlumnoPorClase(str(curso)+clase))
+                self.ui.txt_n_alumnos.setText(str(num_alumnos))
+
+        elif item.checkState(column) == QtCore.Qt.Unchecked:
+            print('{}: Item Unchecked'.format(item.text(0)))
+            if item not in self.GRUPOS:
+                numero = int(self.ui.txt_n_clases.text())
+                numero -= 1
+                self.ui.txt_n_clases.setText(str(numero))
+                num_alumnos = int(self.ui.txt_n_alumnos.text())
+                curso = item.text(0)[0]
+                clase = item.text(0)[1]
+                num_alumnos -= len(AlumnoDAO.getAlumnoPorClase(str(curso)+clase))
+                self.ui.txt_n_alumnos.setText(str(num_alumnos))
+            else:
+                self.GRUPOS_SELECCIONADOS.remove(item)
+                self.ui.txt_n_grupos.setText(str(len(self.GRUPOS_SELECCIONADOS)))
 
     def añadirCola(self):
         numRows = self.ui.tbl_cola.rowCount()
-        self.ui.tbl_cola.insertRow(numRows)
+        
         #grupo = self.ui.cb_grupo.currentText()
         #for i in self.ui.treeGrupos.items():
         #   print(self.ui.treeGrupos.item(i))
-        print(self.ui.treeGrupos.topLevelItemCount())
-        item = self.ui.treeGrupos.topLevelItem(0)
-        print(item.child(0).text(0))
+        lista_seleccionados = []
+        num_grupos = self.ui.treeGrupos.topLevelItemCount()
+        for i in range(0,num_grupos):
+            item = self.ui.treeGrupos.topLevelItem(i)
+            for x in range(0,item.childCount()):
+                #print(item.child(x).text(0))    
+                if item.child(x).checkState(0):
+                    lista_seleccionados.append(item.child(x))
+                    self.ui.treeGrupos.setItemHidden(item.child(x),True)
+
+        for i in lista_seleccionados:
+            self.ui.tbl_cola.insertRow(numRows)
+            item = QTableWidgetItem(i.text(0))
+            item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
+            self.ui.tbl_cola.setItem(numRows,0,item)
+            numRows+=1
+
+        #print(self.ui.treeGrupos.selectedItems())
         #child = (QCheckBox) item.child(0) ############################# esto lo he comentado porque si no no me tira :(
         #print(child.isChecked())
         #print(((QCheckBox)item.child(0)).isChecked())
@@ -180,7 +250,7 @@ class Menu:
 
     def enviarMensaje(self): # Este método devuelve de momento todos los telefonos de la clase escogida
         clase_actual = self.ui.cb_grupo.currentText()
-        if clase_actual != "":
+        if clase_actual != "": #Esto hay que cambiarlo, ahora hay que hacerlo recorriendo todo el árbol 
             items = AlumnoDAO.getAlumnoPorClase(clase_actual)
             telefonos = []
             for i in items:
@@ -424,6 +494,8 @@ class Menu:
         for i in items:
             items_añadir.append(i.__str__())
         self.ui.cb_selgrupo.addItems(items_añadir)
+        self.setTreeColegio()
+        self.setTreeGrupos()
     
     def setTablaClase(self):
         self.borrarTabla(self.ui.tbl_clases)
@@ -454,6 +526,42 @@ class Menu:
     def borrarTabla(self,tabla):
         while tabla.rowCount() > 0:
             tabla.removeRow(0)
+
+    def setTreeColegio(self):
+        self.ui.treeClases.clear()
+        items = ClaseDAO.getClases()
+        clases = []
+        for i in items:
+            clases.append(i.__str__())
+        grupos = {}
+
+        grupo = clases[0][0]
+        clases_grupo = []
+        for i in clases:
+            if i[0] != grupo and grupo != "":
+                grupos[grupo] = clases_grupo
+            #if i[0] not in grupos:
+                clases_grupo = []
+                grupo = i[0]
+                clases_grupo.append(i)
+            else:
+                clases_grupo.append(i)
+        grupos[grupo] = clases_grupo
+        
+        for grupo,clases in grupos.items():
+            parent = QTreeWidgetItem(self.ui.treeClases)
+            parent.setText(0,str(grupo)+"º")
+            #parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
+            
+            for x in clases:
+                child = QTreeWidgetItem(parent)
+                #child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
+                child.setText(0,"{0}".format(x))
+                alumnos = AlumnoDAO.getAlumnoPorClase(child.text(0))
+                for y in alumnos:
+                    childAlumno = QTreeWidgetItem(child)
+                    childAlumno.setText(0,y.getNombreAlumno())
+                #child.setCheckState(0,Qt.Unchecked)
 
 class InputDialog_Clase(QDialog):
     def __init__(self,clase_elegida, parent=None):
