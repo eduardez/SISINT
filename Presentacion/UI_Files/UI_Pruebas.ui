@@ -20,6 +20,30 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QPushButton" name="btn_buscar_contacto">
+     <property name="text">
+      <string>Buscar contacto</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="1">
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;SF Pro&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Envio de mensaje</string>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
      <property name="sizePolicy">
@@ -36,61 +60,24 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QPushButton" name="btn_click">
-     <property name="text">
-      <string>Click Primer elemento</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="btn_buscar_contacto">
-     <property name="text">
-      <string>Buscar contacto</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="0">
+   <item row="13" column="0">
     <widget class="QPushButton" name="pushButton_5">
      <property name="text">
       <string>PushButton</string>
      </property>
     </widget>
    </item>
-   <item row="9" column="1">
-    <widget class="QPushButton" name="pushButton_8">
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QLineEdit" name="input_numero_envio">
-     <property name="placeholderText">
-      <string>numero</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 20pt &quot;SF Pro&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Otros</string>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="1">
+   <item row="14" column="1">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
       <string>PushButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLineEdit" name="input_titulo">
+     <property name="placeholderText">
+      <string>Titulo</string>
      </property>
     </widget>
    </item>
@@ -101,10 +88,24 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="1">
+   <item row="7" column="0" colspan="2">
     <widget class="QLineEdit" name="input_mensaje_envio">
      <property name="placeholderText">
-      <string>mensaje</string>
+      <string>Mensaje</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QLineEdit" name="input_asunto">
+     <property name="placeholderText">
+      <string>Asunto</string>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="0">
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="text">
+      <string>PushButton</string>
      </property>
     </widget>
    </item>
@@ -112,13 +113,6 @@
     <widget class="QPushButton" name="btn_adjuntar">
      <property name="text">
       <string>Adjuntar</string>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="0">
-    <widget class="QPushButton" name="pushButton_4">
-     <property name="text">
-      <string>PushButton</string>
      </property>
     </widget>
    </item>
@@ -138,27 +132,54 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
-    <widget class="QPushButton" name="btn_enviar_msg">
+   <item row="3" column="0">
+    <widget class="QPushButton" name="btn_click">
      <property name="text">
-      <string>Enviar Mensaje</string>
+      <string>Click Primer elemento</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
-    <widget class="Line" name="line">
+   <item row="12" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">font: 20pt &quot;SF Pro&quot;;</string>
      </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+     <property name="text">
+      <string>Otros</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
+   <item row="5" column="0" colspan="2">
+    <widget class="QLineEdit" name="input_numero_envio">
+     <property name="placeholderText">
+      <string>Numero</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QPushButton" name="btn_adjuntar_2">
+     <property name="text">
+      <string>Adjuntar</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1">
     <widget class="QCheckBox" name="is_envio_activado">
      <property name="text">
       <string>Pulsar boton de envio</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0" colspan="2">
+    <widget class="QPushButton" name="btn_enviar_msg">
+     <property name="text">
+      <string>Enviar Mensaje</string>
      </property>
     </widget>
    </item>

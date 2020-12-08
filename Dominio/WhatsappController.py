@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
+
 import time 
 import sys
 import os
@@ -90,17 +91,17 @@ class WhatsAppController():
 
     def setDriverConfig(self):
         if self.browser == 'firefox':
-            self.options = webdriver.FirefoxOptions()
+            profile = webdriver.FirefoxProfile()
             if not self.driver_installed:
-                self.driver = webdriver.Firefox(executable_path=self.driver_path)
+                self.driver = webdriver.Firefox(executable_path=self.driver_path, firefox_profile=profile)
             else:
-                self.driver = webdriver.Firefox()
+                self.driver = webdriver.Firefox(firefox_profile=profile)
         elif self.browser == 'chrome':
-            self.options = webdriver.ChromeOptions()
+            opt = webdriver.ChromeOptions()
             if not self.driver_installed:
-                self.driver = webdriver.Chrome(executable_path=self.driver_path)
+                self.driver = webdriver.Chrome(executable_path=self.driver_path, options=opt)
             else:
-                self.driver = webdriver.Chrome()
+                self.driver = webdriver.Chrome(options=opt)
 
             self.options.add_argument(r"user-data-dir=./cache") #Guardar cache
 
@@ -150,10 +151,13 @@ class WhatsAppController():
             return 1
         return 0
 
-    def sendMsg(self, text, isEnvioActivo):
+    def sendMsg(self, text, isEnvioActivo, titulo=None, asunto=None):
         '''Introducir texto en el chat'''
         text_box = self.searchElement('chat_input_box')
-        text_box.send_keys(text)
+        msg = self.formatMessage(text, titulo, asunto)
+        for field in msg:
+            text_box.send_keys(field)
+            #ActionChains(self.driver).key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(Keys.ENTER).key_up(Keys.SHIFT).perform()
         btn_click = self.searchElement('chat_click_button')
         if isEnvioActivo:
             ActionChains(self.driver).click(btn_click).perform()
@@ -178,5 +182,13 @@ class WhatsAppController():
     def cleanString(self, stng):
         return stng
 
+    def formatMessage(self, text, titulo, asunto):
+        msg = []
+        if titulo:
+            msg.append('*{0}*\n\n'.format(titulo))
+        if asunto:
+            msg.append('_{0}_\n'.format(asunto))
+        msg.append(text)
+        return msg
 
 
