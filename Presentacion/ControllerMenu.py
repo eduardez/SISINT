@@ -170,7 +170,8 @@ class Menu:
             print('{}: Item Checked'.format(item.text(0)))
             if item not in self.GRUPOS:
                 if item.parent() not in self.GRUPOS_SELECCIONADOS:
-                    self.GRUPOS_SELECCIONADOS.append(item.parent())
+                    #self.GRUPOS_SELECCIONADOS.append(item.parent()) # No hay que meter el padre, si no los hijos.
+                    self.GRUPOS_SELECCIONADOS.append(item)
                     self.ui.txt_n_grupos.setText(str(len(self.GRUPOS_SELECCIONADOS)))
                 numero = int(self.ui.txt_n_clases.text())
                 numero += 1
@@ -193,7 +194,7 @@ class Menu:
                 num_alumnos -= len(AlumnoDAO.getAlumnoPorClase(str(curso)+clase))
                 self.ui.txt_n_alumnos.setText(str(num_alumnos))
             else:
-                self.GRUPOS_SELECCIONADOS.remove(item)
+                self.GRUPOS_SELECCIONADOS.remove(item) #### SI QUITAS UN CHECK PETA AQUÍ, I DONT KNOW.
                 self.ui.txt_n_grupos.setText(str(len(self.GRUPOS_SELECCIONADOS)))
 
     def añadirCola(self):
@@ -219,25 +220,6 @@ class Menu:
             self.ui.tbl_cola.setItem(numRows,0,item)
             numRows+=1
 
-        #print(self.ui.treeGrupos.selectedItems())
-        #child = (QCheckBox) item.child(0) ############################# esto lo he comentado porque si no no me tira :(
-        #print(child.isChecked())
-        #print(((QCheckBox)item.child(0)).isChecked())
-
-        #encontrado = False
-        #contador = 0
-        #for i in range(0,numRows):
-        #    elemento = self.ui.tbl_cola.item(contador,0).text()
-        #    if elemento == grupo:
-        #        encontrado = True
-        #        print('YA ESTABA.')
-
-        #if encontrado is False:
-
-        #item = QTableWidgetItem(grupo)
-        #item.setFlags( Qt.ItemIsSelectable | Qt.ItemIsEnabled )
-        #self.ui.tbl_cola.setItem(numRows,0,item)
-
     def borrarCola(self):
         row = self.ui.tbl_cola.currentRow()
         self.ui.tbl_cola.removeRow(row)
@@ -248,22 +230,18 @@ class Menu:
         if file:
             print("Archivo seleccionado: ", file)
 
-    def enviarMensaje(self): # Este método devuelve de momento todos los telefonos de la clase escogida
-        clase_actual = self.ui.cb_grupo.currentText()
-        if clase_actual != "": #Esto hay que cambiarlo, ahora hay que hacerlo recorriendo todo el árbol 
-            items = AlumnoDAO.getAlumnoPorClase(clase_actual)
-            telefonos = []
-            for i in items:
-                telefonos.append(i.getTelefono())
-            print(telefonos)
-            #return telefonos
-
+    def enviarMensaje(self):
         ####### Meter el mensaje en la tabla del historial de mensajes #######
         today = datetime.date.today()
         fecha = today.strftime("%b %d %Y")
         titulo = self.ui.le_titulo.text()
         asunto = self.ui.le_asunto.text()
         cuerpo = self.ui.le_cuerpo.toPlainText()
+        grupos = ""
+
+        for i in range(0,len(self.GRUPOS_SELECCIONADOS)):
+            print(self.GRUPOS_SELECCIONADOS[i].text(0))
+            grupos = grupos + self.GRUPOS_SELECCIONADOS[i].text(0) + " "
 
         if titulo == "" or asunto == "" or cuerpo == "":
             msg = QMessageBox()
@@ -273,11 +251,21 @@ class Menu:
             msg.setWindowTitle("Error")
             msg.exec_()
         else: #### EN ESTE ELSE ES DONDE HAY QUE METER QUE SE INICIE EL ENVÍO MASIVO.
-            MensajeDAO.añadirMensaje(fecha,titulo,asunto,cuerpo,"6B") ######## CUANDO SE SEPA COMO VER LOS GRUPOS, METERLO.
+            #### OBTENCIÓN DE TELÉFONOS PARA REALIZAR EL ENVÍO MÁSIVO.
+            telefonos = []
+            for i in range(0,len(self.GRUPOS_SELECCIONADOS)):
+                items = AlumnoDAO.getAlumnoPorClase(self.GRUPOS_SELECCIONADOS[i].text(0))
+                for i in items:
+                    telefonos.append(i.getTelefono())   
+            print(telefonos)
+
+            #### AÑADIR EL MENSAJE AL HISTORIAL DE MENSAJES.
+            MensajeDAO.añadirMensaje(fecha,titulo,asunto,cuerpo,grupos) 
+
+            #### VACIADO DE CAMPOS.
             self.ui.le_titulo.clear()
             self.ui.le_asunto.clear()
             self.ui.le_cuerpo.clear()
-
 
 ################ FUNCIONES COLEGIO PESTAÑA HISTORIAL #######################
     def cargarMensajesHistorial(self):
