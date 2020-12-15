@@ -121,6 +121,10 @@ class Menu:
             for i in items:
                 telefonos.append(i.getTelefono())
             print(telefonos)
+            titulo = self.ui.le_titulo.text()
+            asunto = self.ui.le_asunto.text()
+            cuerpo = self.ui.le_cuerpo.toPlainText()
+            self.wp_controller.sentMultiMsg(telefonos, cuerpo, False, titulo, asunto)
             #return telefonos
 
 ################ FUNCIONES COLEGIO PESTAÑA ALUMNO #######################

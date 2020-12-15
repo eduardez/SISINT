@@ -151,6 +151,13 @@ class WhatsAppController():
             return 1
         return 0
 
+    def sentMultiMsg(self, telefonos, text, isEnvioActivo=False, titulo=None, asunto=None):
+        for telf in telefonos:
+            self.searchAndClick(telf)
+            self.sendMsg(text, isEnvioActivo, titulo, asunto)
+            time.sleep(1)
+
+
     def sendMsg(self, text, isEnvioActivo, titulo=None, asunto=None):
         '''Introducir texto en el chat'''
         text_box = self.searchElement('chat_input_box')
@@ -185,9 +192,9 @@ class WhatsAppController():
     def formatMessage(self, text, titulo, asunto):
         msg = []
         if titulo:
-            msg.append('*{0}*\n\n'.format(titulo))
+            msg.append('*{0}*      '.format(titulo))
         if asunto:
-            msg.append('_{0}_\n'.format(asunto))
+            msg.append('_{0}_      '.format(asunto))
         msg.append(text)
         return msg
 
