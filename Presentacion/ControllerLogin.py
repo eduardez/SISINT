@@ -14,7 +14,7 @@ class Login():
         super(Login, self).__init__()
         self.ui = QUiLoader().load(QFile("Presentacion/UI_Files/UI_login.ui"))
         ### PARA WINDOWS (SEVILLA)
-        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-persistencia\\Presentacion\\UI_Files\\UI_login.ui"))
+        #self.ui = QUiLoader().load(QFile("C:\\Users\\sevil\\Desktop\\SISINT-Controlador\\Presentacion\\UI_Files\\UI_login.ui"))
         self.ui.btn_iniciar.clicked.connect(self.abrir_menu)
         self.isLogged = False
         self.result_login = None

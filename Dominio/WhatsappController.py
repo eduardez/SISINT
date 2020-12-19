@@ -1,5 +1,3 @@
-
-
 ## NOTA IMPORTANTE: Para poder usar selenium hay que tener en el path el ejecutable "chromedriver"
 
 from selenium import webdriver
@@ -36,8 +34,6 @@ class WhatsAppController():
         self.driver = None
         self.exec = None
         self.wait = None
-        #self.driver = webdriver.Chrome(executable_path="/usr/local/share/chromedriver", chrome_options=self.options)
-        #self.driver = webdriver.Firefox() ### CON ESTE ME VA A MI EN WINDOWS 10 (SEVILLA)
         self.startController()
 
     def startController(self):
@@ -90,6 +86,7 @@ class WhatsAppController():
         print('Path encontrado: ' + self.driver_path)
 
     def setDriverConfig(self):
+        #self.driver = webdriver.Firefox() ### Asi me va a mi (SEVILLA)
         if self.browser == 'firefox':
             profile = webdriver.FirefoxProfile()
             if not self.driver_installed:
@@ -104,7 +101,7 @@ class WhatsAppController():
                 self.driver = webdriver.Chrome(options=opt)
 
             self.options.add_argument(r"user-data-dir=./cache") #Guardar cache
-
+        
     def toggleSize(self):
         '''Cambiar el tamaño del navegador'''
         if self.minimizado:
@@ -197,5 +194,3 @@ class WhatsAppController():
             msg.append('_{0}_      '.format(asunto))
         msg.append(text)
         return msg
-
-

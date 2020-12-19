@@ -22,7 +22,7 @@ class Alumno(DB.Base):
         return self.nombre_tutor
     
     def getTelefono(self):
-        return self.tlf_tutor
+        return str(+34) + self.tlf_tutor
 
     def getDNI(self):
         return self.dni_tutor
@@ -45,3 +45,32 @@ class Clase(DB.Base):
 
     def __str__(self):
         return str(self.clase)+self.letra
+
+class Mensaje(DB.Base):
+    __tablename__ = 'mensajes'
+
+    id = Column(Integer(), primary_key = True)
+    fecha = Column(String())
+    titulo = Column(String())
+    asunto = Column(String())
+    cuerpo = Column(String())
+    grupos = Column(String())
+
+    def getFecha(self):
+        return self.fecha
+
+    def getTitulo(self):
+        return self.titulo
+
+    def getAsunto(self):
+        return self.asunto
+
+    def getCuerpo(self):
+        return self.cuerpo
+    
+    def getGrupos(self):
+        return self.grupos
+    
+    def __str__(self):
+        return "Fecha: " + str(self.fecha) + ", Titulo: " + str(self.titulo) + ", Asunto: " + str(self.asunto) + ", Grupos: " + self.grupos
+

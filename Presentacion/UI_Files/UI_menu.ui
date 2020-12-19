@@ -10,6 +10,14 @@
     <height>764</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Noto Sans</family>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>School Massive WhatsApp</string>
   </property>
@@ -19,14 +27,22 @@ color: rgb(20, 20, 20);
 font: &quot;century-gothic&quot;;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_6">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
      <widget class="QFrame" name="fiz">
       <property name="maximumSize">
        <size>
         <width>200</width>
         <height>16777215</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Noto Sans</family>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">*{
@@ -45,11 +61,19 @@ background:#333;
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QFrame" name="iz1">
+         <property name="font">
+          <font>
+           <family>Noto Sans</family>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -57,6 +81,14 @@ background:#333;
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <spacer name="spacer_iz_arriba">
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
@@ -73,6 +105,14 @@ background:#333;
           </item>
           <item>
            <widget class="QPushButton" name="btn_user">
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">background:rgb(247, 247, 247);
 border-radius:40px;
@@ -102,8 +142,16 @@ border-radius:40px;
        </item>
        <item>
         <widget class="QFrame" name="iz1_2">
+         <property name="font">
+          <font>
+           <family>Noto Sans</family>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -122,6 +170,14 @@ border-radius:40px;
               <width>180</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton{
@@ -161,8 +217,16 @@ border-radius:7px;
        </item>
        <item>
         <widget class="QFrame" name="iz3">
+         <property name="font">
+          <font>
+           <family>Noto Sans</family>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -187,6 +251,14 @@ border-radius:7px;
               <width>180</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton{
@@ -226,8 +298,16 @@ border-radius:8px;
        </item>
        <item>
         <widget class="QFrame" name="iz2">
+         <property name="font">
+          <font>
+           <family>Noto Sans</family>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -246,6 +326,14 @@ border-radius:8px;
               <width>180</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton{
@@ -291,6 +379,14 @@ border-radius:8px;
            <height>50</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Noto Sans</family>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">color:black;
 background:#white;
@@ -316,6 +412,14 @@ border-radius:15px;</string>
               <width>30</width>
               <height>40</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
             </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
@@ -353,6 +457,14 @@ border-radius:3px;
           </item>
           <item>
            <spacer name="horizontalSpacer">
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -374,6 +486,14 @@ border-radius:3px;
               <width>32</width>
               <height>32</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Noto Sans</family>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
             </property>
             <property name="styleSheet">
              <string notr="true">
@@ -409,8 +529,17 @@ border-radius:3px;
       </layout>
      </widget>
     </item>
-    <item>
+    <item row="0" column="1">
      <widget class="QFrame" name="fdr">
+      <property name="font">
+       <font>
+        <family>Century-gothic</family>
+        <pointsize>8</pointsize>
+        <weight>9</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QFrame{
 border-radius:10px;
@@ -423,7 +552,7 @@ font: 75 8pt &quot;Century-gothic&quot;;
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Plain</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
@@ -440,404 +569,409 @@ font: 75 8pt &quot;Century-gothic&quot;;
            <height>700</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>century-gothic</family>
+           <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="sw_enviar">
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <property name="spacing">
             <number>13</number>
            </property>
            <item>
-            <widget class="QLabel" name="lbl_selgrupos">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <property name="bottomMargin">
+              <number>10</number>
              </property>
-             <property name="styleSheet">
-              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-             <property name="text">
-              <string>SELECCIONAR GRUPO:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="cb_grupo">
-             <property name="maximumSize">
-              <size>
-               <width>300</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="spacer_grupos">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>10</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="lbl_miembros">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-             <property name="text">
-              <string>VER MIEMBROS:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="cb_miembro">
-             <property name="maximumSize">
-              <size>
-               <width>300</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="spacer_miembros">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>31</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="lbl_titulo">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-             <property name="text">
-              <string> TÍTULO</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="le_titulo">
-             <property name="styleSheet">
-              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="lbl_asunto">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-             <property name="text">
-              <string> ASUNTO</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="le_asunto">
-             <property name="styleSheet">
-              <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QFrame" name="frame">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QLabel" name="lbl_cuerpo">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
-                </property>
+             <item row="7" column="1">
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="0" column="1">
+                <widget class="QLabel" name="Info_mensaje">
+                 <property name="text">
+                  <string>Información del mensaje</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="lbl_n_alumnos">
+                 <property name="text">
+                  <string>Número de alumnos:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="lbl_n_grupos">
+                 <property name="text">
+                  <string>Número de grupos: </string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="txt_n_grupos">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="txt_n_alumnos">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="lbl_n_clases">
+                 <property name="text">
+                  <string>Número de clases:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="txt_n_clases">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_13">
+               <item>
+                <widget class="QLabel" name="lbl_titulo">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 14pt ;</string>
+                 </property>
+                 <property name="text">
+                  <string> TÍTULO</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="le_titulo">
+                 <property name="styleSheet">
+                  <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="lbl_asunto">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string> ASUNTO</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="le_asunto">
+                 <property name="styleSheet">
+                  <string notr="true">background:white; font: 14pt &quot;century-gothic&quot;;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="5" column="1">
+              <widget class="QFrame" name="frame">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QLabel" name="lbl_cuerpo">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font: 14pt &quot;century-gothic&quot;;</string>
+                  </property>
+                  <property name="text">
+                   <string>CUERPO</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="spacer_iconos1">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Expanding</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>160</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_camara">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color:white;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="Resources/icons.qrc">
+                    <normaloff>:/icons/photo.png</normaloff>:/icons/photo.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="flat">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="spacer_iconos2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Preferred</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_video">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="Resources/icons.qrc">
+                    <normaloff>:/icons/video.png</normaloff>:/icons/video.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="flat">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="spacer_salir">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Preferred</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_files">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="Resources/icons.qrc">
+                    <normaloff>:/icons/file.png</normaloff>:/icons/file.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="flat">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="spacer_iconos3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Preferred</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_forms">
+                  <property name="minimumSize">
+                   <size>
+                    <width>256</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>140</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>GOOGLE FORMS</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="Resources/icons.qrc">
+                    <normaloff>:/icons/form.png</normaloff>:/icons/form.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="1" column="0" rowspan="5">
+              <widget class="QTreeWidget" name="treeGrupos">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Plain</enum>
+               </property>
+               <property name="columnCount">
+                <number>1</number>
+               </property>
+               <column>
                 <property name="text">
-                 <string>CUERPO</string>
+                 <string>GRUPOS</string>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="spacer_iconos1">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Expanding</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>160</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_camara">
-                <property name="maximumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color:white;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources/icons.qrc">
-                  <normaloff>:/icons/photo.png</normaloff>:/icons/photo.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="flat">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="spacer_iconos2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Preferred</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>10</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_video">
-                <property name="maximumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources/icons.qrc">
-                  <normaloff>:/icons/video.png</normaloff>:/icons/video.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="flat">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="spacer_salir">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Preferred</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>10</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_files">
-                <property name="maximumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources/icons.qrc">
-                  <normaloff>:/icons/file.png</normaloff>:/icons/file.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="flat">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="spacer_iconos3">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Preferred</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>10</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_forms">
-                <property name="minimumSize">
-                 <size>
-                  <width>256</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>140</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>GOOGLE FORMS</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources/icons.qrc">
-                  <normaloff>:/icons/form.png</normaloff>:/icons/form.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPlainTextEdit" name="le_cuerpo">
-             <property name="styleSheet">
-              <string notr="true">background:white;
+               </column>
+              </widget>
+             </item>
+             <item row="6" column="0" colspan="2">
+              <widget class="QTextEdit" name="le_cuerpo">
+               <property name="styleSheet">
+                <string notr="true">background:white;
 font: 12pt &quot;century-gothic&quot;;
 border: 1px solid black;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_masivo">
-             <property name="minimumSize">
-              <size>
-               <width>210</width>
-               <height>35</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::RightToLeft</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">*{
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QPushButton" name="btn_masivo">
+               <property name="minimumSize">
+                <size>
+                 <width>210</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::RightToLeft</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">*{
 font:14px;
 }
 QPushButton{
@@ -849,17 +983,19 @@ QPushButton:hover{
 background-color:rgb(0, 170, 0);
 border-radius:8px;
 }</string>
-             </property>
-             <property name="text">
-              <string>REALIZAR ENVÍO MASIVO</string>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>30</width>
-               <height>30</height>
-              </size>
-             </property>
-            </widget>
+               </property>
+               <property name="text">
+                <string>REALIZAR ENVÍO MASIVO</string>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -882,6 +1018,15 @@ border-radius:8px;
                <height>400</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>century-gothic</family>
+               <pointsize>14</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -893,67 +1038,16 @@ border-radius:8px;
                <enum>QLayout::SetMinimumSize</enum>
               </property>
               <item>
-               <widget class="QTableWidget" name="tableWidget">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                  <horstretch>1</horstretch>
-                  <verstretch>1</verstretch>
-                 </sizepolicy>
+               <widget class="QTableWidget" name="tbl_historial">
+                <property name="font">
+                 <font>
+                  <family>century-gothic</family>
+                  <pointsize>14</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
                 </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>200</height>
-                 </size>
-                </property>
-                <attribute name="horizontalHeaderVisible">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="horizontalHeaderCascadingSectionResizes">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="horizontalHeaderDefaultSectionSize">
-                 <number>106</number>
-                </attribute>
-                <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="horizontalHeaderStretchLastSection">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="verticalHeaderVisible">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="verticalHeaderCascadingSectionResizes">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="verticalHeaderMinimumSectionSize">
-                 <number>18</number>
-                </attribute>
-                <attribute name="verticalHeaderDefaultSectionSize">
-                 <number>32</number>
-                </attribute>
-                <attribute name="verticalHeaderHighlightSections">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="verticalHeaderStretchLastSection">
-                 <bool>false</bool>
-                </attribute>
-                <row>
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>2</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>3</string>
-                 </property>
-                </row>
                 <column>
                  <property name="text">
                   <string>FECHA</string>
@@ -961,79 +1055,24 @@ border-radius:8px;
                 </column>
                 <column>
                  <property name="text">
-                  <string>TITULO</string>
+                  <string>TÍTULO</string>
                  </property>
                 </column>
                 <column>
                  <property name="text">
-                  <string>MENSAJE</string>
+                  <string>ASUNTO</string>
                  </property>
                 </column>
                 <column>
                  <property name="text">
-                  <string>GRUPO</string>
+                  <string>CUERPO</string>
                  </property>
                 </column>
-                <item row="0" column="0">
+                <column>
                  <property name="text">
-                  <string>12/10/2020</string>
+                  <string>GRUPOS</string>
                  </property>
-                </item>
-                <item row="0" column="1">
-                 <property name="text">
-                  <string>Examen Lengua</string>
-                 </property>
-                </item>
-                <item row="0" column="2">
-                 <property name="text">
-                  <string>Los alumnos tendrán un examen el próximo Lunes de Lengua</string>
-                 </property>
-                </item>
-                <item row="0" column="3">
-                 <property name="text">
-                  <string>6B</string>
-                 </property>
-                </item>
-                <item row="1" column="0">
-                 <property name="text">
-                  <string>14/10/2020</string>
-                 </property>
-                </item>
-                <item row="1" column="1">
-                 <property name="text">
-                  <string>Autorización</string>
-                 </property>
-                </item>
-                <item row="1" column="2">
-                 <property name="text">
-                  <string>Los alumnos que quieran asistir al teatro el proximo miercoles deberan entregar la autorización</string>
-                 </property>
-                </item>
-                <item row="1" column="3">
-                 <property name="text">
-                  <string>5A</string>
-                 </property>
-                </item>
-                <item row="2" column="0">
-                 <property name="text">
-                  <string>19/10/2020</string>
-                 </property>
-                </item>
-                <item row="2" column="1">
-                 <property name="text">
-                  <string>Calificaciones Examen Lengua</string>
-                 </property>
-                </item>
-                <item row="2" column="2">
-                 <property name="text">
-                  <string>Cada alumno ha recibido hoy su calificación del examen realizado esta semana.</string>
-                 </property>
-                </item>
-                <item row="2" column="3">
-                 <property name="text">
-                  <string>6B</string>
-                 </property>
-                </item>
+                </column>
                </widget>
               </item>
               <item>
@@ -1049,6 +1088,15 @@ border-radius:8px;
                   <width>16777215</width>
                   <height>40</height>
                  </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>century-gothic</family>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">*{
@@ -1106,7 +1154,7 @@ border-radius:8px;
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="alumnos">
                  <attribute name="title">
@@ -1355,46 +1403,64 @@ border-radius:8px;
                  </attribute>
                  <layout class="QVBoxLayout" name="verticalLayout_11">
                   <item>
-                   <widget class="QFrame" name="frame_5">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
+                   <layout class="QGridLayout" name="gridLayout_6">
+                    <property name="bottomMargin">
+                     <number>10</number>
                     </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout">
-                     <item>
-                      <spacer name="horizontalSpacer_4">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                    <item row="1" column="0">
+                     <widget class="QTableWidget" name="tbl_clases">
+                      <column>
+                       <property name="text">
+                        <string>CURSO</string>
                        </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Preferred</enum>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>GRUPO</string>
                        </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>190</width>
-                         <height>20</height>
-                        </size>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>NºALUMNOS</string>
                        </property>
-                      </spacer>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="btn_addclase">
-                       <property name="minimumSize">
-                        <size>
-                         <width>120</width>
-                         <height>35</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>100</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">*{
+                      </column>
+                     </widget>
+                    </item>
+                    <item row="0" column="0" colspan="2">
+                     <widget class="QFrame" name="frame_5">
+                      <layout class="QHBoxLayout" name="horizontalLayout">
+                       <item>
+                        <spacer name="horizontalSpacer_4">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Preferred</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>190</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_addclase">
+                         <property name="minimumSize">
+                          <size>
+                           <width>120</width>
+                           <height>35</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>100</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">*{
 font:17px;
 }
 QPushButton{
@@ -1407,28 +1473,28 @@ background-color:rgb(0, 170, 0);
  
 border-radius:8px;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>AÑADIR</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="btn_editclase">
-                       <property name="minimumSize">
-                        <size>
-                         <width>120</width>
-                         <height>35</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>100</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">*{
+                         </property>
+                         <property name="text">
+                          <string>AÑADIR</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_editclase">
+                         <property name="minimumSize">
+                          <size>
+                           <width>120</width>
+                           <height>35</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>100</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">*{
 font:17px;
 }
 QPushButton{
@@ -1441,28 +1507,28 @@ background-color:rgb(0, 170, 0);
  
 border-radius:8px;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>EDITAR</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="btn_borrarclase">
-                       <property name="minimumSize">
-                        <size>
-                         <width>120</width>
-                         <height>35</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>100</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">*{
+                         </property>
+                         <property name="text">
+                          <string>EDITAR</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_borrarclase">
+                         <property name="minimumSize">
+                          <size>
+                           <width>120</width>
+                           <height>35</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>100</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">*{
 font:17px;
 }
 QPushButton{
@@ -1475,33 +1541,34 @@ background-color:rgb(0, 170, 0);
  
 border-radius:8px;
 }</string>
-                       </property>
+                         </property>
+                         <property name="text">
+                          <string>BORRAR</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QTreeWidget" name="treeClases">
+                      <property name="frameShape">
+                       <enum>QFrame::Box</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Plain</enum>
+                      </property>
+                      <attribute name="headerCascadingSectionResizes">
+                       <bool>false</bool>
+                      </attribute>
+                      <column>
                        <property name="text">
-                        <string>BORRAR</string>
+                        <string>CLASES</string>
                        </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QTableWidget" name="tbl_clases">
-                    <column>
-                     <property name="text">
-                      <string>CURSO</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>GRUPO</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>NºALUMNOS</string>
-                     </property>
-                    </column>
-                   </widget>
+                      </column>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
